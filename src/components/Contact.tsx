@@ -2,65 +2,63 @@ import { useState } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Textarea } from './ui/textarea'; 
+import { Textarea } from './ui/textarea';
 import { Mail, Linkedin, Github, Download, Phone, MapPin } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to a backend
     toast({
       title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
+      description: "Thank you for your message. I'll get back to you soon!"
     });
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
   };
-
-  const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      title: "Email",
-      value: "karl.ngueko@example.com",
-      link: "mailto:karl.ngueko@example.com"
-    },
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      title: "LinkedIn", 
-      value: "Karl Friedrich NGUEKO TCHINDEU",
-      link: "https://linkedin.com/in/karl-friedrich-ngueko-tchindeu"
-    },
-    {
-      icon: <Github className="h-5 w-5" />,
-      title: "GitHub",
-      value: "@karlson148305",
-      link: "https://github.com/karlson148305"
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      title: "Location",
-      value: "Institut UCAC-ICAM",
-      link: null
-    }
-  ];
-
-  return (
-    <section id="contact" className="py-20 bg-background">
+  const contactInfo = [{
+    icon: <Mail className="h-5 w-5" />,
+    title: "Email",
+    value: "karl.ngueko@example.com",
+    link: "mailto:karl.ngueko@example.com"
+  }, {
+    icon: <Linkedin className="h-5 w-5" />,
+    title: "LinkedIn",
+    value: "Karl Friedrich NGUEKO TCHINDEU",
+    link: "https://linkedin.com/in/karl-friedrich-ngueko-tchindeu"
+  }, {
+    icon: <Github className="h-5 w-5" />,
+    title: "GitHub",
+    value: "@karlson148305",
+    link: "https://github.com/karlson148305"
+  }, {
+    icon: <MapPin className="h-5 w-5" />,
+    title: "Location",
+    value: "Institut UCAC-ICAM",
+    link: null
+  }];
+  return <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
@@ -88,16 +86,9 @@ const Contact = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="card-mechanical">
+              {contactInfo.map((info, index) => <Card key={index} className="-bottom-0 rounded-3xl">
                   <div className="p-4">
-                    {info.link ? (
-                      <a 
-                        href={info.link}
-                        target={info.link.startsWith('http') ? '_blank' : '_self'}
-                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="flex items-center space-x-4 hover:text-secondary transition-colors"
-                      >
+                    {info.link ? <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-4 hover:text-secondary transition-colors">
                         <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                           {info.icon}
                         </div>
@@ -105,9 +96,7 @@ const Contact = () => {
                           <p className="font-semibold text-steel">{info.title}</p>
                           <p className="text-muted-foreground">{info.value}</p>
                         </div>
-                      </a>
-                    ) : (
-                      <div className="flex items-center space-x-4">
+                      </a> : <div className="flex items-center space-x-4">
                         <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                           {info.icon}
                         </div>
@@ -115,11 +104,9 @@ const Contact = () => {
                           <p className="font-semibold text-steel">{info.title}</p>
                           <p className="text-muted-foreground">{info.value}</p>
                         </div>
-                      </div>
-                    )}
+                      </div>}
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
 
             {/* Resume Download */}
@@ -151,48 +138,21 @@ const Contact = () => {
                     <label htmlFor="name" className="block text-sm font-semibold text-steel mb-2">
                       Full Name
                     </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      required
-                      className="w-full"
-                    />
+                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="w-full" />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-steel mb-2">
                       Email Address
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      required
-                      className="w-full"
-                    />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required className="w-full" />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold text-steel mb-2">
                       Message
                     </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project or just say hello!"
-                      rows={5}
-                      required
-                      className="w-full resize-none"
-                    />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={5} required className="w-full resize-none" />
                   </div>
 
                   <Button type="submit" className="w-full btn-hero">
@@ -215,8 +175,6 @@ const Contact = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
