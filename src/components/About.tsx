@@ -17,7 +17,7 @@ const About = () => {
               <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-lg">
                 <img src={karlProfile} alt="Karl Friedrich NGUEKO TCHINDEU" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-secondary text-secondary-foreground p-4 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-secondary text-secondary-foreground p-4 shadow-lg rounded-3xl py-[14px] px-[8px]">
                 <p className="font-orbitron font-bold text-sm">Mechanical Design</p>
                 <p className="font-orbitron font-bold text-sm text-center">Engineer</p>
               </div>
