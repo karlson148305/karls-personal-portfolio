@@ -1,0 +1,145 @@
+import { Card } from './ui/card';
+import { Button } from './ui/button';
+import { Github } from 'lucide-react';
+
+const Portfolio = () => {
+  const projects = [
+    {
+      title: "Phone Holder Project",
+      description: "Designed a phone holder prototype with adjustable angles for ergonomic use. Created detailed 3D models and prototypes focusing on user comfort and versatility.",
+      tools: ["SolidWorks", "3D Modeling", "Prototyping"],
+      teamwork: "3-member collaboration",
+      github: "https://github.com/karlson148305/phone-holder",
+      features: [
+        "Adjustable angle mechanism",
+        "Ergonomic design principles",
+        "Material optimization",
+        "User-centered approach"
+      ],
+      category: "Product Design"
+    },
+    {
+      title: "Drone Project", 
+      description: "Developed a working drone integrating aerodynamics, energy systems, control algorithms, and mechanical design. Complete system from concept to flight testing.",
+      tools: ["CAD Design", "Electrical Systems", "Control Algorithms", "Testing"],
+      teamwork: "Multi-disciplinary project",
+      github: "https://github.com/karlson148305/drone-project",
+      features: [
+        "Aerodynamic optimization",
+        "Energy system integration",
+        "Autonomous algorithms",
+        "Flight testing protocols"
+      ],
+      category: "Systems Integration"
+    }
+  ];
+
+  return (
+    <section id="portfolio" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
+            My Portfolio
+          </h2>
+          <p className="text-lg text-muted-foreground mb-4">
+            Engineering solutions from concept to reality
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="card-project group">
+              <div className="p-6 h-full flex flex-col">
+                {/* Project Header */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-orbitron font-medium text-secondary">
+                      {project.category}
+                    </span>
+                    <div className="flex items-center space-x-2">
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => window.open(project.github, '_blank')}
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <Github className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-orbitron font-bold text-steel mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Tools & Collaboration */}
+                <div className="mb-4">
+                  <div className="mb-3">
+                    <h4 className="text-sm font-semibold text-steel mb-2">Tools Used:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tools.map((tool, toolIndex) => (
+                        <span 
+                          key={toolIndex}
+                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Teamwork:</strong> {project.teamwork}
+                  </p>
+                </div>
+
+                {/* Key Features */}
+                <div className="flex-grow">
+                  <h4 className="text-sm font-semibold text-steel mb-2">Key Features:</h4>
+                  <ul className="space-y-1">
+                    {project.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Project Link */}
+                <div className="mt-6 pt-4 border-t border-border">
+                  <Button 
+                    onClick={() => window.open(project.github, '_blank')}
+                    className="w-full btn-hero"
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    View on GitHub
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">
+            Interested in collaborating on engineering projects?
+          </p>
+          <Button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            variant="outline"
+            className="btn-outline-hero"
+          >
+            Let's Work Together
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;

@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'orbitron': ['Orbitron', 'sans-serif'],
+				'roboto': ['Roboto', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				steel: {
+					DEFAULT: 'hsl(var(--steel))',
+					light: 'hsl(var(--steel-light))'
+				},
+				'electric-blue': {
+					DEFAULT: 'hsl(var(--electric-blue))',
+					light: 'hsl(var(--electric-blue-light))'
+				},
+				'mechanical-orange': 'hsl(var(--mechanical-orange))',
+				'blueprint-blue': 'hsl(var(--blueprint-blue))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

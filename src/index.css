@@ -2,39 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Mechanical Engineering Portfolio Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Mechanical theme */
+    --background: 210 20% 98%;
+    --foreground: 210 17% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 17% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 17% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Steel Gray */
+    --primary: 210 17% 18%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Electric Blue */
+    --secondary: 207 90% 54%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted variations */
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 17% 48%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Bright Blue */
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 17% 90%;
+    --input: 210 17% 90%;
+    --ring: 207 90% 54%;
+
+    /* Engineering-specific colors */
+    --steel: 210 17% 18%;
+    --steel-light: 210 17% 30%;
+    --electric-blue: 207 90% 54%;
+    --electric-blue-light: 207 90% 64%;
+    --mechanical-orange: 25 95% 53%;
+    --blueprint-blue: 214 77% 52%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--steel)), hsl(var(--steel-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--electric-blue-light)));
+    --gradient-mechanical: linear-gradient(45deg, hsl(var(--steel)) 0%, hsl(var(--electric-blue)) 100%);
+
+    /* Shadows */
+    --shadow-mechanical: 0 10px 30px -5px hsl(var(--steel) / 0.2);
+    --shadow-glow: 0 0 30px hsl(var(--electric-blue) / 0.3);
+    --shadow-card: 0 4px 20px hsl(var(--steel) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -101,5 +128,100 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-secondary to-accent text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  .btn-outline-hero {
+    @apply border-2 border-secondary text-secondary bg-transparent font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground;
+  }
+
+  /* Card variants */
+  .card-mechanical {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-project {
+    @apply bg-card border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Skills progress bars */
+  .skill-bar {
+    @apply bg-muted rounded-full h-3 overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-secondary to-accent transition-all duration-1000 ease-out;
+  }
+
+  /* Mechanical pattern overlay */
+  .mechanical-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--steel) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--electric-blue) / 0.1) 2px, transparent 2px);
+    background-size: 40px 40px;
+  }
+
+  /* Glow effects */
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.5);
+  }
+
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Grid utilities */
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
