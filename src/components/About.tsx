@@ -79,7 +79,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border p-6 rounded-3xl">
                 <blockquote className="text-lg italic text-steel font-medium">
                   "I believe engineering is not just about machines, but about mastering ideas to improve the world."
                 </blockquote>
