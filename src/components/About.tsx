@@ -1,9 +1,7 @@
 import { Card } from './ui/card';
 import karlProfile from '../assets/karl-profile.jpg';
-
 const About = () => {
-  return (
-    <section id="about" className="py-20 bg-muted/30">
+  return <section id="about" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
@@ -17,14 +15,10 @@ const About = () => {
           <div className="flex justify-center animate-fade-in">
             <div className="relative">
               <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={karlProfile} 
-                  alt="Karl Friedrich NGUEKO TCHINDEU"
-                  className="w-full h-full object-cover"
-                />
+                <img src={karlProfile} alt="Karl Friedrich NGUEKO TCHINDEU" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-secondary text-secondary-foreground p-4 rounded-xl shadow-lg">
-                <p className="font-orbitron font-bold text-sm">Mechanical</p>
+                <p className="font-orbitron font-bold text-sm">Mechanical Design</p>
                 <p className="font-orbitron font-bold text-sm">Engineering</p>
               </div>
             </div>
@@ -65,17 +59,23 @@ const About = () => {
                   Core Values
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {[
-                    { icon: '💡', title: 'Innovation', desc: 'Creative solutions' },
-                    { icon: '🔧', title: 'Problem-Solving', desc: 'Real-world focus' },
-                    { icon: '🌱', title: 'Sustainability', desc: 'Eco-friendly designs' }
-                  ].map((value, index) => (
-                    <Card key={index} className="p-4 text-center card-mechanical">
+                  {[{
+                  icon: '💡',
+                  title: 'Innovation',
+                  desc: 'Creative solutions'
+                }, {
+                  icon: '🔧',
+                  title: 'Problem-Solving',
+                  desc: 'Real-world focus'
+                }, {
+                  icon: '🌱',
+                  title: 'Sustainability',
+                  desc: 'Eco-friendly designs'
+                }].map((value, index) => <Card key={index} className="p-4 text-center card-mechanical">
                       <div className="text-2xl mb-2">{value.icon}</div>
                       <h5 className="font-orbitron font-semibold text-steel">{value.title}</h5>
                       <p className="text-sm text-muted-foreground">{value.desc}</p>
-                    </Card>
-                  ))}
+                    </Card>)}
                 </div>
               </div>
 
@@ -91,8 +91,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
