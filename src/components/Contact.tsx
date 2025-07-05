@@ -87,7 +87,7 @@ const Contact = () => {
             {/* Contact Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => <Card key={index} className="-bottom-0 rounded-3xl">
-                  <div className="p-4">
+                  <div className="p-4 px-[12px] py-[12px]">
                     {info.link ? <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-4 hover:text-secondary transition-colors">
                         <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                           {info.icon}
