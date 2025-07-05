@@ -10,6 +10,7 @@ const Portfolio = () => {
       tools: ["SolidWorks", "3D Modeling", "Prototyping"],
       teamwork: "3-member collaboration",
       github: "https://github.com/karlson148305/phone-holder",
+      image: null, // Placeholder for project images
       features: [
         "Adjustable angle mechanism",
         "Ergonomic design principles",
@@ -24,6 +25,7 @@ const Portfolio = () => {
       tools: ["CAD Design", "Electrical Systems", "Control Algorithms", "Testing"],
       teamwork: "Multi-disciplinary project",
       github: "https://github.com/karlson148305/drone-project",
+      image: null, // Placeholder for project images
       features: [
         "Aerodynamic optimization",
         "Energy system integration",
@@ -49,10 +51,37 @@ const Portfolio = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="card-project group">
-              <div className="p-6 h-full flex flex-col">
-                {/* Project Header */}
-                <div className="mb-4">
+            <Card key={index} className="card-project group animate-fade-in hover:scale-[1.02] transition-all duration-500" style={{ animationDelay: `${index * 200}ms` }}>
+              <div className="overflow-hidden">
+                {/* Project Image Section */}
+                <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border group-hover:from-secondary/5 group-hover:to-accent/5 transition-all duration-500">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-center animate-pulse">
+                        <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                          <span className="text-2xl">🔧</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground font-orbitron">
+                          Project Image
+                        </p>
+                        <p className="text-xs text-muted-foreground/70">
+                          Click to add image
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                
+                <div className="p-6">
+                  {/* Project Header */}
+                  <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-orbitron font-medium text-secondary">
                       {project.category}
@@ -109,15 +138,16 @@ const Portfolio = () => {
                   </ul>
                 </div>
 
-                {/* Project Link */}
-                <div className="mt-6 pt-4 border-t border-border">
-                  <Button 
-                    onClick={() => window.open(project.github, '_blank')}
-                    className="w-full btn-hero"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    View on GitHub
-                  </Button>
+                  {/* Project Link */}
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <Button 
+                      onClick={() => window.open(project.github, '_blank')}
+                      className="w-full btn-hero transform hover:scale-105 active:scale-95 transition-transform"
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      View on GitHub
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Card>

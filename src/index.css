@@ -95,21 +95,26 @@
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 207 90% 54%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 207 90% 54%;
+    
+    /* Engineering-specific colors for dark mode */
+    --steel: 210 40% 98%;
+    --steel-light: 210 30% 88%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -177,6 +182,23 @@
   /* Glow effects */
   .glow-blue {
     box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.5);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 15px hsl(var(--secondary) / 0.4);
+  }
+
+  /* Interactive elements */
+  .interactive-scale {
+    transition: transform 0.2s ease-out;
+  }
+  
+  .interactive-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .interactive-scale:active {
+    transform: scale(0.98);
   }
 
   .text-gradient {

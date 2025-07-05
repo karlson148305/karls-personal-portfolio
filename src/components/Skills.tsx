@@ -8,6 +8,8 @@ const Skills = () => {
     { name: "SolidWorks", level: 90, category: "CAD Software" },
     { name: "Ansys Granta", level: 70, category: "Materials Analysis" },
     { name: "MS Office Pack", level: 95, category: "Productivity" },
+    { name: "English", level: 80, category: "Languages (B2)" },
+    { name: "French", level: 100, category: "Languages (Native)" },
     { name: "Project Management", level: 75, category: "Leadership" },
     { name: "Critical Thinking", level: 85, category: "Problem Solving" },
     { name: "Team Collaboration", level: 88, category: "Soft Skills" }
@@ -16,6 +18,7 @@ const Skills = () => {
   const skillCategories = [
     { name: "CAD & Design", skills: ["SolidWorks", "3D Modeling", "Technical Drawing"] },
     { name: "Analysis & Simulation", skills: ["Ansys Granta", "Materials Research", "Performance Analysis"] },
+    { name: "Languages", skills: ["French (Native)", "English (B2)", "Technical Communication"] },
     { name: "Project Management", skills: ["Agile Methodology", "Team Leadership", "Documentation"] },
     { name: "Soft Skills", skills: ["Critical Thinking", "Problem Solving", "Communication"] }
   ];
@@ -58,7 +61,7 @@ const Skills = () => {
               Proficiency Levels
             </h3>
             {skills.map((skill, index) => (
-              <div key={index} className="space-y-2">
+              <div key={index} className="space-y-2 animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="font-semibold text-steel">{skill.name}</span>
@@ -68,9 +71,9 @@ const Skills = () => {
                     {skill.level}%
                   </span>
                 </div>
-                <div className="skill-bar">
+                <div className="skill-bar hover:shadow-lg transition-shadow duration-300">
                   <div 
-                    className="skill-progress"
+                    className="skill-progress hover:shadow-glow"
                     style={{
                       width: isVisible ? `${skill.level}%` : '0%',
                       transitionDelay: `${index * 200}ms`
@@ -88,17 +91,17 @@ const Skills = () => {
             </h3>
             <div className="grid gap-4">
               {skillCategories.map((category, index) => (
-                <Card key={index} className="card-mechanical">
-                  <div className="p-6">
-                    <h4 className="text-lg font-orbitron font-semibold text-steel mb-4 flex items-center">
-                      <div className="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                <Card key={index} className="card-mechanical hover:shadow-xl hover:scale-[1.02] animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
+                  <div className="p-4">
+                    <h4 className="text-lg font-orbitron font-semibold text-steel mb-3 flex items-center">
+                      <div className="w-3 h-3 bg-secondary rounded-full mr-3 animate-pulse"></div>
                       {category.name}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium border border-secondary/20"
+                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-105 transition-all duration-200"
                         >
                           {skill}
                         </span>

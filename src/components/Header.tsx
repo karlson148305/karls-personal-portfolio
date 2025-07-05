@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from './ui/button';
+import { useTheme } from '../hooks/use-theme';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -35,7 +37,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <button
                 key={item.id}
@@ -45,10 +47,41 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Theme Toggle - Ball Bearing Style */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="relative w-12 h-6 bg-muted rounded-full p-1 transition-all duration-300 hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+              aria-label="Toggle theme"
+            >
+              <div className={`absolute inset-1 w-4 h-4 bg-gradient-to-br from-steel to-steel-light rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
+                theme === 'dark' ? 'translate-x-6' : 'translate-x-0'
+              }`}>
+                <div className="w-2 h-2 bg-secondary rounded-full opacity-60"></div>
+              </div>
+              <Sun className={`absolute left-1.5 top-1.5 h-3 w-3 text-mechanical-orange transition-opacity ${
+                theme === 'light' ? 'opacity-100' : 'opacity-0'
+              }`} />
+              <Moon className={`absolute right-1.5 top-1.5 h-3 w-3 text-blueprint-blue transition-opacity ${
+                theme === 'dark' ? 'opacity-100' : 'opacity-0'
+              }`} />
+            </button>
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu and theme toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="relative w-10 h-5 bg-muted rounded-full p-0.5 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              <div className={`w-4 h-4 bg-gradient-to-br from-steel to-steel-light rounded-full shadow-md transition-transform duration-300 flex items-center justify-center ${
+                theme === 'dark' ? 'translate-x-5' : 'translate-x-0'
+              }`}>
+                <div className="w-1.5 h-1.5 bg-secondary rounded-full opacity-60"></div>
+              </div>
+            </button>
             <Button
               variant="ghost"
               size="sm"
