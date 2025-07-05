@@ -19,7 +19,7 @@ const About = () => {
               </div>
               <div className="absolute -bottom-6 -right-6 bg-secondary text-secondary-foreground p-4 rounded-xl shadow-lg">
                 <p className="font-orbitron font-bold text-sm">Mechanical Design</p>
-                <p className="font-orbitron font-bold text-sm">Engineering</p>
+                <p className="font-orbitron font-bold text-sm text-center">Engineer</p>
               </div>
             </div>
           </div>
