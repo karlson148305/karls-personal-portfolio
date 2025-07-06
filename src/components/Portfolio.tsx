@@ -1,6 +1,7 @@
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
+import portfolioBackground from '../assets/portfolio-background.jpg';
 
 const Portfolio = () => {
   const projects = [
@@ -37,13 +38,23 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      id="portfolio" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${portfolioBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-accent/5 animate-pulse"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
             My Portfolio
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
             Engineering solutions from concept to reality
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>

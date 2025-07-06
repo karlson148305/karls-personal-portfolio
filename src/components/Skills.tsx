@@ -1,5 +1,6 @@
 import { Card } from './ui/card';
 import { useState, useEffect } from 'react';
+import skillsBackground from '../assets/skills-background.jpg';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,13 +43,23 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      id="skills" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${skillsBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 to-accent/5 animate-pulse"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
             Technical Skills
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
             Expertise across mechanical design and engineering tools
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
@@ -57,15 +68,15 @@ const Skills = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Skill Bars */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-orbitron font-bold text-steel mb-6">
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-6 animate-slide-up">
               Proficiency Levels
             </h3>
             {skills.map((skill, index) => (
               <div key={index} className="space-y-2 animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-semibold text-steel">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground ml-2">({skill.category})</span>
+                    <span className="font-semibold text-white">{skill.name}</span>
+                    <span className="text-sm text-gray-300 ml-2">({skill.category})</span>
                   </div>
                   <span className="text-secondary font-orbitron font-bold">
                     {skill.level}%
@@ -86,22 +97,23 @@ const Skills = () => {
 
           {/* Skill Categories */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-orbitron font-bold text-steel mb-6">
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-6 animate-slide-up">
               Core Competencies
             </h3>
             <div className="grid gap-4">
               {skillCategories.map((category, index) => (
-                <Card key={index} className="card-mechanical hover:shadow-xl hover:scale-[1.02] animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
+                <Card key={index} className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:shadow-xl hover:scale-[1.05] hover:rotate-1 transition-all duration-500 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
                   <div className="p-4">
                     <h4 className="text-lg font-orbitron font-semibold text-steel mb-3 flex items-center">
-                      <div className="w-3 h-3 bg-secondary rounded-full mr-3 animate-pulse"></div>
+                      <div className="w-3 h-3 bg-secondary rounded-full mr-3 animate-pulse shadow-glow"></div>
                       {category.name}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-105 transition-all duration-200"
+                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-sm hover:shadow-glow animate-fade-in"
+                          style={{animationDelay: `${skillIndex * 100}ms`}}
                         >
                           {skill}
                         </span>

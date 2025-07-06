@@ -1,5 +1,6 @@
 import { Card } from './ui/card';
 import { Code, Settings, Briefcase } from 'lucide-react';
+import servicesBackground from '../assets/services-background.jpg';
 
 const Services = () => {
   const services = [
@@ -39,13 +40,23 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      id="services" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${servicesBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-bl from-secondary/5 to-accent/5 animate-pulse"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
             My Services
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
             From concept to CAD – Let's build what you imagine
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
@@ -53,10 +64,10 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="card-mechanical group text-center hover:bg-card/80">
+            <Card key={index} className="card-mechanical group text-center hover:bg-card/80 bg-card/70 backdrop-blur-sm hover:scale-105 hover:rotate-1 transition-all duration-500 animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
               <div className="p-6">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-glow animate-pulse">
                   {service.icon}
                 </div>
 
