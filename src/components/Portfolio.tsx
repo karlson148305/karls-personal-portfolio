@@ -1,7 +1,7 @@
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
-import portfolioBackground from '../assets/portfolio-background.jpg';
+import portfolioFEA from '../assets/portfolio-fea.jpg';
 
 const Portfolio = () => {
   const projects = [
@@ -34,6 +34,21 @@ const Portfolio = () => {
         "Flight testing protocols"
       ],
       category: "Systems Integration"
+    },
+    {
+      title: "Boat Project",
+      description: "A two-year project combining mechanical design, electrical control, electronics integration, fluid mechanics, and systems engineering to develop a functional boat steering system.",
+      tools: ["CAD Modeling", "Servo Control", "Hydraulic Systems", "Fluid Mechanics"],
+      teamwork: "Multi-disciplinary engineering project",
+      github: "https://github.com/karlson148305/Boat-Project",
+      image: null, // Placeholder for project images
+      features: [
+        "SolidWorks CAD modeling",
+        "Servo-rudder control system",
+        "Hydraulic actuation design",
+        "Marine systems integration"
+      ],
+      category: "Marine Engineering"
     }
   ];
 
@@ -42,7 +57,7 @@ const Portfolio = () => {
       id="portfolio" 
       className="py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${portfolioBackground})`,
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${portfolioFEA})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -51,7 +66,7 @@ const Portfolio = () => {
       <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in typing-animation">
             My Portfolio
           </h2>
           <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
@@ -60,9 +75,9 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="card-project group animate-fade-in hover:scale-[1.02] transition-all duration-500" style={{ animationDelay: `${index * 200}ms` }}>
+            <Card key={index} className="card-project flip-card group animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
               <div className="overflow-hidden">
                 {/* Project Image Section */}
                 <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border group-hover:from-secondary/5 group-hover:to-accent/5 transition-all duration-500">

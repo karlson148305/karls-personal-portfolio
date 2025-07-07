@@ -1,6 +1,6 @@
 import { Card } from './ui/card';
 import { useState, useEffect } from 'react';
-import skillsBackground from '../assets/skills-background.jpg';
+import skillsGranta from '../assets/skills-granta.jpg';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,10 +47,11 @@ const Skills = () => {
       id="skills" 
       className="py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${skillsBackground})`,
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.9), rgba(33, 43, 54, 0.9)), url(${skillsGranta})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
+        filter: 'blur(0.5px)',
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 to-accent/5 animate-pulse"></div>

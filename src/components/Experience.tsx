@@ -1,12 +1,27 @@
 import { Card } from './ui/card';
 import { Calendar, MapPin, Briefcase } from 'lucide-react';
-import experienceBackground from '../assets/experience-background.jpg';
+import experienceFactory from '../assets/experience-factory.jpg';
 
 const Experience = () => {
   const experiences = [
     {
+      company: "Schwing Stetter",
+      position: "Production Intern", 
+      location: "India",
+      period: "2024",
+      type: "International Internship",
+      description: "International internship experience in construction equipment manufacturing. Exposed to advanced production techniques and global manufacturing standards in heavy machinery production, specifically transit mixers.",
+      achievements: [
+        "Observed transit mixer manufacturing processes",
+        "Studied heavy machinery production techniques",
+        "Gained international work experience",
+        "Collaborated with multicultural engineering teams"
+      ],
+      skills: ["Heavy Machinery", "Manufacturing Standards", "Cross-cultural Communication", "Industrial Operations"]
+    },
+    {
       company: "Nohi Chocolat",
-      position: "Production Intern",
+      position: "Production Site Assistant",
       location: "Cameroon",
       period: "2023",
       type: "Internship",
@@ -20,19 +35,19 @@ const Experience = () => {
       skills: ["Production Management", "Quality Control", "Industrial Safety", "Process Analysis"]
     },
     {
-      company: "Schwing Stetter",
-      position: "Production Intern", 
-      location: "India",
-      period: "2024",
-      type: "International Internship",
-      description: "International internship experience in construction equipment manufacturing. Exposed to advanced production techniques and global manufacturing standards in heavy machinery production.",
+      company: "SOS Village D'Enfants Douala",
+      position: "Volunteer",
+      location: "Cameroon",
+      period: "2022",
+      type: "Volunteer Work",
+      description: "Contributed to community development and social responsibility initiatives. Participated in educational and support programs for children in need.",
       achievements: [
-        "Studied heavy machinery manufacturing processes",
-        "Gained international work experience",
-        "Learned advanced production techniques",
-        "Collaborated with multicultural teams"
+        "Supported educational activities",
+        "Participated in community outreach",
+        "Developed leadership skills",
+        "Enhanced interpersonal communication"
       ],
-      skills: ["Heavy Machinery", "Manufacturing Standards", "Cross-cultural Communication", "Industrial Operations"]
+      skills: ["Community Service", "Leadership", "Communication", "Social Responsibility"]
     }
   ];
 
@@ -41,7 +56,7 @@ const Experience = () => {
       id="experience" 
       className="py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${experienceBackground})`,
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${experienceFactory})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

@@ -120,21 +120,6 @@ const Contact = () => {
                 </Card>)}
             </div>
 
-            {/* Resume Download */}
-            <Card className="card-mechanical bg-gradient-to-r from-secondary/5 to-accent/5 border-secondary/20">
-              <div className="p-6 text-center">
-                <h4 className="text-lg font-orbitron font-bold text-steel mb-3">
-                  Download My Resume
-                </h4>
-                <p className="text-muted-foreground mb-4">
-                  Get a detailed overview of my skills, experience, and projects.
-                </p>
-                <Button className="btn-hero">
-                  <Download className="h-4 w-4 mr-2" />
-                  Download Resume
-                </Button>
-              </div>
-            </Card>
           </div>
 
             {/* Contact Form */}
@@ -173,6 +158,47 @@ const Contact = () => {
                 </form>
               </div>
             </Card>
+          </div>
+        </div>
+
+        {/* Resume Download Section */}
+        <div className="mt-12">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Download Button */}
+            <div className="bg-card/70 backdrop-blur-sm border border-border rounded-xl p-8 text-center hover:bg-card/90 hover:scale-105 transition-all duration-300">
+              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
+                Download My Resume
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Get a comprehensive overview of my skills, experience, and projects in a downloadable format.
+              </p>
+              <Button className="btn-hero inline-flex items-center justify-center">
+                <Download className="h-5 w-5 mr-2" />
+                Download Resume (PDF)
+              </Button>
+            </div>
+            
+            {/* Right Column - Resume Preview */}
+            <div className="bg-card/70 backdrop-blur-sm border border-border rounded-xl p-8 text-center hover:bg-card/90 hover:scale-105 transition-all duration-300">
+              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
+                Resume Preview
+              </h3>
+              <div className="bg-muted/50 rounded-lg p-4 cursor-pointer hover:scale-105 transition-transform duration-300">
+                <div className="w-full h-64 bg-gradient-to-br from-muted to-muted/50 rounded-lg flex items-center justify-center border-2 border-dashed border-border">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <span className="text-2xl">📄</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-orbitron">
+                      Resume Preview
+                    </p>
+                    <p className="text-xs text-muted-foreground/70">
+                      Click to view full size
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

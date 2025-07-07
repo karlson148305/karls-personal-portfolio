@@ -1,12 +1,12 @@
 import { Card } from './ui/card';
 import karlProfile from '../assets/karl-profile.jpg';
-import aboutBackground from '../assets/about-background.jpg';
+import aboutBlueprint from '../assets/about-blueprint.jpg';
 const About = () => {
   return <section 
       id="about" 
       className="py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${aboutBackground})`,
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${aboutBlueprint})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
