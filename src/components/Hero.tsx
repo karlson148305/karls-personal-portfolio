@@ -1,25 +1,20 @@
 import { Button } from './ui/button';
 import karlProfile from '../assets/karl-profile.jpg';
 import mechanicalPattern from '../assets/mechanical-pattern.jpg';
-
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.8), rgba(33, 43, 54, 0.8)), url(${mechanicalPattern})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+  return <section id="home" className="min-h-screen flex items-center relative overflow-hidden" style={{
+    backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.8), rgba(33, 43, 54, 0.8)), url(${mechanicalPattern})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }}>
       <div className="mechanical-pattern absolute inset-0 opacity-20"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -42,10 +37,7 @@ const Hero = () => {
               Aspiring Mechanical Design Engineer
             </h2>
             
-            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">
-              Specializing in CAD modeling and simulation. Skilled in SolidWorks and exploring 
-              advanced tools like Ansys Granta to improve design accuracy and materials selection.
-            </p>
+            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed py-0 my-[20px] mx-0 px-0 text-center font-thin">Specializing in CAD modeling, engineering simulation, project management, and material science. Proficient in SolidWorks, with hands-on experience in Ansys Granta for accurate design validation and data-driven material selection.</p>
             
             <div className="mb-8">
               <p className="text-secondary font-orbitron font-medium text-lg">
@@ -54,17 +46,10 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                onClick={() => scrollToSection('portfolio')}
-                className="btn-hero"
-              >
+              <Button onClick={() => scrollToSection('portfolio')} className="btn-hero">
                 View Portfolio
               </Button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                variant="outline"
-                className="btn-outline-hero"
-              >
+              <Button onClick={() => scrollToSection('contact')} variant="outline" className="btn-outline-hero">
                 Contact Me
               </Button>
             </div>
@@ -74,11 +59,7 @@ const Hero = () => {
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-secondary glow-blue animate-float">
-                <img 
-                  src={karlProfile} 
-                  alt="Karl Friedrich NGUEKO TCHINDEU"
-                  className="w-full h-full object-cover"
-                />
+                <img src={karlProfile} alt="Karl Friedrich NGUEKO TCHINDEU" className="w-full h-full object-cover" />
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-secondary/20 rounded-full animate-pulse"></div>
@@ -87,8 +68,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
