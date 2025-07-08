@@ -2,16 +2,12 @@ import { Card } from './ui/card';
 import karlProfile from '../assets/karl-profile.jpg';
 import aboutBlueprint from '../assets/about-blueprint.jpg';
 const About = () => {
-  return <section 
-      id="about" 
-      className="py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url(${aboutBlueprint})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
-    >
+  return <section id="about" className="py-20 relative overflow-hidden" style={{
+    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url(${aboutBlueprint})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed'
+  }}>
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
@@ -44,7 +40,9 @@ const About = () => {
                 <h3 className="text-xl font-orbitron font-bold text-white mb-3 animate-slide-up">
                   Passionate About Innovation
                 </h3>
-                <p className="text-gray-300 leading-relaxed animate-fade-in" style={{animationDelay: '200ms'}}>
+                <p className="text-gray-300 leading-relaxed animate-fade-in" style={{
+                animationDelay: '200ms'
+              }}>
                   Currently pursuing General Engineering with a specialization in Mechanical Engineering 
                   at Institut UCAC-ICAM, I am driven by a passion for innovation, real-world problem-solving, 
                   and sustainable design solutions.
@@ -52,10 +50,14 @@ const About = () => {
               </div>
 
               <div>
-                <h4 className="text-lg font-orbitron font-semibold text-white mb-2 animate-slide-up" style={{animationDelay: '400ms'}}>
+                <h4 className="text-lg font-orbitron font-semibold text-white mb-2 animate-slide-up" style={{
+                animationDelay: '400ms'
+              }}>
                   Educational Background
                 </h4>
-                <Card className="p-4 card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '600ms'}}>
+                <Card className="p-4 card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in" style={{
+                animationDelay: '600ms'
+              }}>
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
                     <div>
@@ -68,7 +70,9 @@ const About = () => {
               </div>
 
               <div>
-                <h4 className="text-lg font-orbitron font-semibold text-white mb-2 animate-slide-up" style={{animationDelay: '800ms'}}>
+                <h4 className="text-lg font-orbitron font-semibold text-white mb-2 animate-slide-up" style={{
+                animationDelay: '800ms'
+              }}>
                   Core Values
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -84,7 +88,9 @@ const About = () => {
                   icon: '🌱',
                   title: 'Sustainability',
                   desc: 'Eco-friendly designs'
-                }].map((value, index) => <Card key={index} className="p-4 text-center card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-110 hover:rotate-2 transition-all duration-300 animate-fade-in" style={{animationDelay: `${1000 + index * 200}ms`}}>
+                }].map((value, index) => <Card key={index} style={{
+                  animationDelay: `${1000 + index * 200}ms`
+                }} className="p-4 text-center card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-110 hover:rotate-2 transition-all duration-300 animate-fade-in rounded-2xl px-px py-px">
                       <div className="text-2xl mb-2 animate-bounce">{value.icon}</div>
                       <h5 className="font-orbitron font-semibold text-steel">{value.title}</h5>
                       <p className="text-sm text-muted-foreground">{value.desc}</p>
@@ -92,7 +98,9 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-card/80 backdrop-blur-sm border border-border p-6 rounded-3xl hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in glow-blue" style={{animationDelay: '1600ms'}}>
+              <div className="bg-card/80 backdrop-blur-sm border border-border p-6 rounded-3xl hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in glow-blue" style={{
+              animationDelay: '1600ms'
+            }}>
                 <blockquote className="text-lg italic text-steel font-medium">
                   "I believe engineering is not just about machines, but about mastering ideas to improve the world."
                 </blockquote>
