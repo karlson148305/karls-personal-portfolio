@@ -37,7 +37,7 @@ const Hero = () => {
               Aspiring Mechanical Design Engineer
             </h2>
             
-            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed py-0 my-[20px] mx-0 px-0 text-center font-thin">Specializing in CAD modeling, engineering simulation, project management, and material science. Proficient in SolidWorks, with hands-on experience in Ansys Granta for accurate design validation and data-driven material selection.</p>
+            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed py-0 my-[20px] mx-0 px-0 font-thin text-justify">Specializing in CAD modeling, engineering simulation, project management, and material science. Proficient in SolidWorks, with hands-on experience in Ansys Granta for accurate design validation and data-driven material selection.</p>
             
             <div className="mb-8">
               <p className="text-secondary font-orbitron font-medium text-lg">
