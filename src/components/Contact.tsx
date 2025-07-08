@@ -171,22 +171,25 @@ const Contact = () => {
         <div className="text-center mb-16">
           <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-4 max-w-sm mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in mt-8">
             <h3 className="text-base font-orbitron font-bold text-steel mb-3">My Resume</h3>
-            <div className="bg-muted/50 rounded-lg p-3 mb-3">
-              <div className="w-full h-32 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-secondary/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-lg">📄</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground font-orbitron">Resume Preview</p>
-                </div>
+            <div className="bg-muted/50 rounded-lg p-2 mb-3">
+              <div className="w-full h-40 rounded-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/970f44f0-9c44-4c40-b019-273fbb9cb789.png" 
+                  alt="Karl Friedrich NGUEKO TCHINDEU Resume" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            <button className="w-full h-10 bg-secondary hover:bg-secondary/90 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center">
+            <a 
+              href="/lovable-uploads/970f44f0-9c44-4c40-b019-273fbb9cb789.png"
+              download="Karl_Friedrich_NGUEKO_TCHINDEU_Resume.png"
+              className="w-full h-10 bg-secondary hover:bg-secondary/90 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center"
+            >
               <svg className="h-3 w-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Download My Resume
-            </button>
+            </a>
           </div>
         </div>
 
