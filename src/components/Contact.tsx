@@ -59,23 +59,21 @@ const Contact = () => {
     value: "Institut UCAC-ICAM",
     link: null
   }];
-  return <section 
-      id="contact" 
-      className="py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${contactBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
-    >
+  return <section id="contact" className="py-20 relative overflow-hidden" style={{
+    backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${contactBackground})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed'
+  }}>
       <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in">
             Let's Work Together!
           </h2>
-          <p className="text-base text-gray-300 mb-3 animate-fade-in" style={{animationDelay: '200ms'}}>
+          <p className="text-base text-gray-300 mb-3 animate-fade-in" style={{
+          animationDelay: '200ms'
+        }}>
             Ready to design something amazing? Get in touch and let's discuss your next project.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
@@ -89,7 +87,9 @@ const Contact = () => {
               <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
                 Get In Touch
               </h3>
-              <p className="text-gray-300 mb-8 leading-relaxed animate-fade-in" style={{animationDelay: '400ms'}}>
+              <p className="text-gray-300 mb-8 leading-relaxed animate-fade-in" style={{
+              animationDelay: '400ms'
+            }}>
                 I'm always excited to discuss new opportunities, collaborate on engineering projects, 
                 or simply connect with fellow engineers and innovators. Whether you have a specific project 
                 in mind or just want to explore possibilities, don't hesitate to reach out!
@@ -98,7 +98,9 @@ const Contact = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => <Card key={index} className="bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-105 hover:rotate-1 transition-all duration-300 rounded-3xl animate-fade-in" style={{animationDelay: `${600 + index * 100}ms`}}>
+              {contactInfo.map((info, index) => <Card key={index} className="bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-105 hover:rotate-1 transition-all duration-300 rounded-3xl animate-fade-in" style={{
+              animationDelay: `${600 + index * 100}ms`
+            }}>
                   <div className="p-4 px-[12px] py-[12px]">
                     {info.link ? <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-4 hover:text-secondary transition-colors">
                         <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
@@ -125,7 +127,9 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div>
-              <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-[1.02] transition-all duration-300 animate-fade-in" style={{animationDelay: '800ms'}}>
+              <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-[1.02] transition-all duration-300 animate-fade-in" style={{
+            animationDelay: '800ms'
+          }}>
                 <div className="p-6">
                   <h3 className="text-lg font-orbitron font-bold text-steel mb-4 animate-slide-up">
                     Send a Message
@@ -188,9 +192,7 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground">
-            © 2024 Karl Friedrich NGUEKO TCHINDEU. Designed with passion for mechanical engineering.
-          </p>
+          <p className="text-muted-foreground">© 2024 Karl Friedrich NGUEKO TCHINDEU. Designed with passion for mechanical engineering.</p>
           <p className="text-sm text-muted-foreground mt-2">
             "Engineering with purpose. Designing for performance."
           </p>
