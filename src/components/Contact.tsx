@@ -165,7 +165,7 @@ const Contact = () => {
 
         {/* Resume Section */}
         <div className="text-center mb-16">
-          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in">
+          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-6 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in mt-8">
             <h3 className="text-lg font-orbitron font-bold text-steel mb-4">My Resume</h3>
             <div className="bg-muted/50 rounded-lg p-4 mb-4">
               <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
