@@ -81,28 +81,6 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
         </div>
 
-        {/* Resume Section */}
-        <div className="text-center mb-16">
-          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in">
-            <h3 className="text-lg font-orbitron font-bold text-steel mb-4">My Resume</h3>
-            <div className="bg-muted/50 rounded-lg p-4 mb-4">
-              <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">📄</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground font-orbitron">Resume Preview</p>
-                </div>
-              </div>
-            </div>
-            <button className="btn-hero w-full">
-              <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Download My Resume
-            </button>
-          </div>
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
@@ -184,6 +162,29 @@ const Contact = () => {
           </div>
         </div>
 
+
+        {/* Resume Section */}
+        <div className="text-center mb-16">
+          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in">
+            <h3 className="text-lg font-orbitron font-bold text-steel mb-4">My Resume</h3>
+            <div className="bg-muted/50 rounded-lg p-4 mb-4">
+              <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <span className="text-2xl">📄</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-orbitron">Resume Preview</p>
+                </div>
+              </div>
+            </div>
+            <button className="btn-hero w-full">
+              <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download My Resume
+            </button>
+          </div>
+        </div>
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
