@@ -271,36 +271,34 @@
     animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
   }
 
-  /* 3D Flip Card */
-  .flip-card {
+  /* 3D Parallax Tilt Effect */
+  .parallax-tilt {
     perspective: 1000px;
-    transition: transform 0.6s;
+    transition: transform 0.1s ease-out;
     transform-style: preserve-3d;
   }
 
-  .flip-card:hover {
-    transform: rotateY(180deg);
+  .parallax-tilt:hover {
+    transform: rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0)) scale3d(1.05, 1.05, 1.05);
   }
 
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-
-  .flip-card-front, .flip-card-back {
+  .parallax-tilt::before {
+    content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 0.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.1), transparent 50%);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    pointer-events: none;
+    z-index: 1;
   }
 
-  .flip-card-back {
-    transform: rotateY(180deg);
+  .parallax-tilt:hover::before {
+    opacity: 1;
   }
 
   @keyframes float {

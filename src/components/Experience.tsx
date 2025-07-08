@@ -34,21 +34,6 @@ const Experience = () => {
       ],
       skills: ["Production Management", "Quality Control", "Industrial Safety", "Process Analysis"]
     },
-    {
-      company: "SOS Village D'Enfants Douala",
-      position: "Volunteer",
-      location: "Cameroon",
-      period: "2022",
-      type: "Volunteer Work",
-      description: "Contributed to community development and social responsibility initiatives. Participated in educational and support programs for children in need.",
-      achievements: [
-        "Supported educational activities",
-        "Participated in community outreach",
-        "Developed leadership skills",
-        "Enhanced interpersonal communication"
-      ],
-      skills: ["Community Service", "Leadership", "Communication", "Social Responsibility"]
-    }
   ];
 
   return (
@@ -65,7 +50,7 @@ const Experience = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-steel mb-4">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-steel mb-3">
             Professional Experience
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
@@ -92,10 +77,10 @@ const Experience = () => {
                       {/* Header */}
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
-                          <h3 className="text-xl font-orbitron font-bold text-steel mb-1">
+                          <h3 className="text-lg font-orbitron font-bold text-steel mb-1">
                             {exp.position}
                           </h3>
-                          <h4 className="text-lg font-semibold text-secondary mb-2">
+                          <h4 className="text-base font-semibold text-secondary mb-2">
                             {exp.company}
                           </h4>
                         </div>
@@ -159,7 +144,7 @@ const Experience = () => {
         <div className="mt-16">
           <Card className="card-mechanical bg-gradient-to-r from-steel/5 to-secondary/5 border-steel/20">
             <div className="p-8 text-center">
-              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
+              <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
                 Career Focus
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">

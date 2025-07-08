@@ -53,7 +53,7 @@ const Services = () => {
       <div className="absolute inset-0 bg-gradient-to-bl from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
             My Services
           </h2>
           <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
@@ -72,7 +72,7 @@ const Services = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-orbitron font-bold text-steel mb-4">
+                <h3 className="text-lg font-orbitron font-bold text-steel mb-3">
                   {service.title}
                 </h3>
 
@@ -98,7 +98,7 @@ const Services = () => {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <div className="bg-card border border-border rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
+            <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
               Ready to Start Your Project?
             </h3>
             <p className="text-muted-foreground mb-6">

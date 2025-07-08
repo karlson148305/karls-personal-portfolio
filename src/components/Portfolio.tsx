@@ -1,9 +1,56 @@
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import portfolioFEA from '../assets/portfolio-fea.jpg';
 
 const Portfolio = () => {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent, index: number) => {
+      const card = cardRefs.current[index];
+      if (!card) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+
+      card.style.setProperty('--rotate-x', `${rotateX}deg`);
+      card.style.setProperty('--rotate-y', `${rotateY}deg`);
+      card.style.setProperty('--x', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--y', `${(y / rect.height) * 100}%`);
+    };
+
+    const handleMouseLeave = (index: number) => {
+      const card = cardRefs.current[index];
+      if (!card) return;
+
+      card.style.setProperty('--rotate-x', '0deg');
+      card.style.setProperty('--rotate-y', '0deg');
+    };
+
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        const mouseMoveHandler = (e: MouseEvent) => handleMouseMove(e, index);
+        const mouseLeaveHandler = () => handleMouseLeave(index);
+
+        card.addEventListener('mousemove', mouseMoveHandler);
+        card.addEventListener('mouseleave', mouseLeaveHandler);
+
+        return () => {
+          card.removeEventListener('mousemove', mouseMoveHandler);
+          card.removeEventListener('mouseleave', mouseLeaveHandler);
+        };
+      }
+    });
+  }, []);
+
   const projects = [
     {
       title: "Phone Holder Project",
@@ -66,7 +113,7 @@ const Portfolio = () => {
       <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in typing-animation">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
             My Portfolio
           </h2>
           <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
@@ -77,7 +124,12 @@ const Portfolio = () => {
 
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="card-project flip-card group animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+            <Card 
+              key={index} 
+              ref={(el) => (cardRefs.current[index] = el)}
+              className="card-project parallax-tilt group animate-fade-in" 
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
               <div className="overflow-hidden">
                 {/* Project Image Section */}
                 <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border group-hover:from-secondary/5 group-hover:to-accent/5 transition-all duration-500">
@@ -123,7 +175,7 @@ const Portfolio = () => {
                       </Button>
                     </div>
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-steel mb-2">
+                  <h3 className="text-lg font-orbitron font-bold text-steel mb-2">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">

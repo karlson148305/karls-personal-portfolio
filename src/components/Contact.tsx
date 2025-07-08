@@ -71,21 +71,44 @@ const Contact = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in">
             Let's Work Together!
           </h2>
-          <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
+          <p className="text-base text-gray-300 mb-3 animate-fade-in" style={{animationDelay: '200ms'}}>
             Ready to design something amazing? Get in touch and let's discuss your next project.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
+        </div>
+
+        {/* Resume Section */}
+        <div className="text-center mb-16">
+          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-8 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in">
+            <h3 className="text-lg font-orbitron font-bold text-steel mb-4">My Resume</h3>
+            <div className="bg-muted/50 rounded-lg p-4 mb-4">
+              <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <span className="text-2xl">📄</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-orbitron">Resume Preview</p>
+                </div>
+              </div>
+            </div>
+            <button className="btn-hero w-full">
+              <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download My Resume
+            </button>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-orbitron font-bold text-white mb-6 animate-slide-up">
+              <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
                 Get In Touch
               </h3>
               <p className="text-gray-300 mb-8 leading-relaxed animate-fade-in" style={{animationDelay: '400ms'}}>
@@ -126,7 +149,7 @@ const Contact = () => {
             <div>
               <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-[1.02] transition-all duration-300 animate-fade-in" style={{animationDelay: '800ms'}}>
                 <div className="p-6">
-                  <h3 className="text-2xl font-orbitron font-bold text-steel mb-6 animate-slide-up">
+                  <h3 className="text-lg font-orbitron font-bold text-steel mb-4 animate-slide-up">
                     Send a Message
                   </h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -161,46 +184,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Resume Download Section */}
-        <div className="mt-12">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Left Column - Download Button */}
-            <div className="bg-card/70 backdrop-blur-sm border border-border rounded-xl p-8 text-center hover:bg-card/90 hover:scale-105 transition-all duration-300">
-              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
-                Download My Resume
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Get a comprehensive overview of my skills, experience, and projects in a downloadable format.
-              </p>
-              <Button className="btn-hero inline-flex items-center justify-center">
-                <Download className="h-5 w-5 mr-2" />
-                Download Resume (PDF)
-              </Button>
-            </div>
-            
-            {/* Right Column - Resume Preview */}
-            <div className="bg-card/70 backdrop-blur-sm border border-border rounded-xl p-8 text-center hover:bg-card/90 hover:scale-105 transition-all duration-300">
-              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
-                Resume Preview
-              </h3>
-              <div className="bg-muted/50 rounded-lg p-4 cursor-pointer hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-64 bg-gradient-to-br from-muted to-muted/50 rounded-lg flex items-center justify-center border-2 border-dashed border-border">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-2xl">📄</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-orbitron">
-                      Resume Preview
-                    </p>
-                    <p className="text-xs text-muted-foreground/70">
-                      Click to view full size
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">

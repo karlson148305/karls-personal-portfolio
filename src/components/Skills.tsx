@@ -57,8 +57,8 @@ const Skills = () => {
       <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4 animate-fade-in">
-            Technical Skills
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
+            My Skills
           </h2>
           <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
             Expertise across mechanical design and engineering tools
@@ -69,7 +69,7 @@ const Skills = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Skill Bars */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-orbitron font-bold text-white mb-6 animate-slide-up">
+            <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
               Proficiency Levels
             </h3>
             {skills.map((skill, index) => (
@@ -98,7 +98,7 @@ const Skills = () => {
 
           {/* Skill Categories */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-orbitron font-bold text-white mb-6 animate-slide-up">
+            <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
               Core Competencies
             </h3>
             <div className="grid gap-4">
@@ -131,7 +131,7 @@ const Skills = () => {
         <div className="mt-16">
           <Card className="card-mechanical bg-gradient-to-r from-secondary/5 to-accent/5 border-secondary/20">
             <div className="p-8 text-center">
-              <h3 className="text-2xl font-orbitron font-bold text-steel mb-4">
+              <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
                 Continuous Learning
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
