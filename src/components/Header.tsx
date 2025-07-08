@@ -56,10 +56,14 @@ const Header = () => {
               </button>)}
             
             {/* Resume Download Button */}
-            <button className="btn-outline-hero text-sm px-4 py-2 inline-flex items-center">
+            <a 
+              href="/lovable-uploads/970f44f0-9c44-4c40-b019-273fbb9cb789.png" 
+              download="Karl_Friedrich_NGUEKO_TCHINDEU_Resume.png"
+              className="btn-outline-hero text-sm px-4 py-2 inline-flex items-center"
+            >
               <Download className="h-4 w-4 mr-1" />
               Resume
-            </button>
+            </a>
             
             {/* Theme Toggle - Ball Bearing Style */}
             <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="relative w-12 h-6 bg-muted rounded-full p-1 transition-all duration-300 hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" aria-label="Toggle theme">
