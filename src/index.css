@@ -164,7 +164,7 @@
 
   /* Skills progress bars */
   .skill-bar {
-    @apply bg-muted rounded-full h-3 overflow-hidden;
+    @apply bg-muted rounded-full h-2 overflow-hidden;
   }
 
   .skill-progress {

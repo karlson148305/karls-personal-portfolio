@@ -55,13 +55,13 @@ const About = () => {
                 <h4 className="text-lg font-orbitron font-semibold text-white mb-2 animate-slide-up" style={{animationDelay: '400ms'}}>
                   Educational Background
                 </h4>
-                <Card className="p-4 card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '600ms'}}>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+                <Card className="p-3 card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '600ms'}}>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
                     <div>
-                      <p className="font-semibold text-steel">General Engineering</p>
-                      <p className="text-sm text-muted-foreground">Specialization in Mechanical Engineering</p>
-                      <p className="text-sm font-medium text-secondary">Institut UCAC-ICAM</p>
+                      <p className="font-semibold text-steel text-sm">General Engineering</p>
+                      <p className="text-xs text-muted-foreground">Specialization in Mechanical Engineering</p>
+                      <p className="text-xs font-medium text-secondary">Institut UCAC-ICAM</p>
                     </div>
                   </div>
                 </Card>
@@ -84,19 +84,19 @@ const About = () => {
                   icon: '🌱',
                   title: 'Sustainability',
                   desc: 'Eco-friendly designs'
-                }].map((value, index) => <Card key={index} className="p-4 text-center card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-110 hover:rotate-2 transition-all duration-300 animate-fade-in" style={{animationDelay: `${1000 + index * 200}ms`}}>
-                      <div className="text-2xl mb-2 animate-bounce">{value.icon}</div>
-                      <h5 className="font-orbitron font-semibold text-steel">{value.title}</h5>
-                      <p className="text-sm text-muted-foreground">{value.desc}</p>
+                }].map((value, index) => <Card key={index} className="p-3 text-center card-mechanical bg-card/80 backdrop-blur-sm hover:bg-card/90 hover:scale-110 hover:rotate-2 transition-all duration-300 animate-fade-in" style={{animationDelay: `${1000 + index * 200}ms`}}>
+                      <div className="text-xl mb-1 animate-bounce">{value.icon}</div>
+                      <h5 className="font-orbitron font-semibold text-steel text-sm">{value.title}</h5>
+                      <p className="text-xs text-muted-foreground">{value.desc}</p>
                     </Card>)}
                 </div>
               </div>
 
-              <div className="bg-card/80 backdrop-blur-sm border border-border p-6 rounded-3xl hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in glow-blue" style={{animationDelay: '1600ms'}}>
-                <blockquote className="text-lg italic text-steel font-medium">
+              <div className="bg-card/80 backdrop-blur-sm border border-border p-4 rounded-2xl hover:bg-card/90 hover:scale-105 transition-all duration-300 animate-fade-in glow-blue" style={{animationDelay: '1600ms'}}>
+                <blockquote className="text-base italic text-steel font-medium">
                   "I believe engineering is not just about machines, but about mastering ideas to improve the world."
                 </blockquote>
-                <p className="text-right text-secondary font-orbitron font-semibold mt-2 animate-pulse">
+                <p className="text-right text-secondary font-orbitron font-semibold mt-2 animate-pulse text-sm">
                   - Karl Friedrich
                 </p>
               </div>

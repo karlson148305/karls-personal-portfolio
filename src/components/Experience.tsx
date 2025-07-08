@@ -73,27 +73,27 @@ const Experience = () => {
                 {/* Content */}
                 <div className="md:pl-16">
                   <Card className="card-mechanical">
-                    <div className="p-6">
+                    <div className="p-4">
                       {/* Header */}
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                         <div>
-                          <h3 className="text-lg font-orbitron font-bold text-steel mb-1">
+                          <h3 className="text-base font-orbitron font-bold text-steel mb-1">
                             {exp.position}
                           </h3>
-                          <h4 className="text-base font-semibold text-secondary mb-2">
+                          <h4 className="text-sm font-semibold text-secondary mb-1">
                             {exp.company}
                           </h4>
                         </div>
                         <div className="flex flex-col md:items-end space-y-1">
-                          <div className="flex items-center text-sm text-muted-foreground">
-                            <Calendar className="h-4 w-4 mr-1" />
+                          <div className="flex items-center text-xs text-muted-foreground">
+                            <Calendar className="h-3 w-3 mr-1" />
                             {exp.period}
                           </div>
-                          <div className="flex items-center text-sm text-muted-foreground">
-                            <MapPin className="h-4 w-4 mr-1" />
+                          <div className="flex items-center text-xs text-muted-foreground">
+                            <MapPin className="h-3 w-3 mr-1" />
                             {exp.location}
                           </div>
-                          <span className="inline-flex items-center px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full font-medium">
+                          <span className="inline-flex items-center px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium">
                             <Briefcase className="h-3 w-3 mr-1" />
                             {exp.type}
                           </span>
@@ -101,17 +101,17 @@ const Experience = () => {
                       </div>
 
                       {/* Description */}
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                      <p className="text-muted-foreground mb-3 leading-relaxed text-sm">
                         {exp.description}
                       </p>
 
                       {/* Achievements */}
-                      <div className="mb-4">
-                        <h5 className="font-semibold text-steel mb-2">Key Achievements:</h5>
-                        <ul className="space-y-1">
+                      <div className="mb-3">
+                        <h5 className="font-semibold text-steel mb-1 text-sm">Key Achievements:</h5>
+                        <ul className="space-y-0.5">
                           {exp.achievements.map((achievement, achIndex) => (
-                            <li key={achIndex} className="flex items-start text-sm text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                            <li key={achIndex} className="flex items-start text-xs text-muted-foreground">
+                              <div className="w-1 h-1 bg-secondary rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
                               {achievement}
                             </li>
                           ))}
@@ -120,12 +120,12 @@ const Experience = () => {
 
                       {/* Skills */}
                       <div>
-                        <h5 className="font-semibold text-steel mb-2">Skills Developed:</h5>
-                        <div className="flex flex-wrap gap-2">
+                        <h5 className="font-semibold text-steel mb-1 text-sm">Skills Developed:</h5>
+                        <div className="flex flex-wrap gap-1">
                           {exp.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium"
+                              className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium"
                             >
                               {skill}
                             </span>
@@ -143,23 +143,23 @@ const Experience = () => {
         {/* Career Focus */}
         <div className="mt-16">
           <Card className="card-mechanical bg-gradient-to-r from-steel/5 to-secondary/5 border-steel/20">
-            <div className="p-8 text-center">
-              <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
+            <div className="p-5 text-center">
+              <h3 className="text-base font-orbitron font-bold text-steel mb-2">
                 Career Focus
               </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-4 max-w-xl mx-auto text-sm">
                 Though my experience lies in production, my true calling is in design engineering. 
                 I'm passionate about transitioning from production operations to mechanical design and innovation, 
                 where I can apply my understanding of manufacturing constraints to create better, more efficient designs.
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <span className="px-4 py-2 bg-steel text-primary-foreground rounded-lg font-orbitron font-medium">
+              <div className="flex flex-wrap justify-center gap-2">
+                <span className="px-3 py-1 bg-steel text-primary-foreground rounded-lg font-orbitron font-medium text-sm">
                   Design Engineering
                 </span>
-                <span className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-orbitron font-medium">
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-lg font-orbitron font-medium text-sm">
                   CAD Innovation
                 </span>
-                <span className="px-4 py-2 bg-mechanical-orange text-white rounded-lg font-orbitron font-medium">
+                <span className="px-3 py-1 bg-mechanical-orange text-white rounded-lg font-orbitron font-medium text-sm">
                   Sustainable Solutions
                 </span>
               </div>

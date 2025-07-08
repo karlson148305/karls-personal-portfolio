@@ -103,20 +103,20 @@ const Contact = () => {
             }}>
                   <div className="p-4 px-[12px] py-[12px]">
                     {info.link ? <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-4 hover:text-secondary transition-colors">
-                        <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+                        <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                           {info.icon}
                         </div>
                         <div>
-                          <p className="font-semibold text-steel">{info.title}</p>
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="font-semibold text-steel text-sm">{info.title}</p>
+                          <p className="text-muted-foreground text-xs">{info.value}</p>
                         </div>
                       </a> : <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+                        <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                           {info.icon}
                         </div>
                         <div>
-                          <p className="font-semibold text-steel">{info.title}</p>
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="font-semibold text-steel text-sm">{info.title}</p>
+                          <p className="text-muted-foreground text-xs">{info.value}</p>
                         </div>
                       </div>}
                   </div>
@@ -130,30 +130,30 @@ const Contact = () => {
               <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-[1.02] transition-all duration-300 animate-fade-in" style={{
             animationDelay: '800ms'
           }}>
-                <div className="p-6">
-                  <h3 className="text-lg font-orbitron font-bold text-steel mb-4 animate-slide-up">
+                <div className="p-4">
+                  <h3 className="text-base font-orbitron font-bold text-steel mb-3 animate-slide-up">
                     Send a Message
                   </h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-steel mb-2">
+                    <label htmlFor="name" className="block text-xs font-semibold text-steel mb-1">
                       Full Name
                     </label>
-                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="w-full" />
+                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="w-full h-8 text-sm" />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-steel mb-2">
+                    <label htmlFor="email" className="block text-xs font-semibold text-steel mb-1">
                       Email Address
                     </label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required className="w-full" />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required className="w-full h-8 text-sm" />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-steel mb-2">
+                    <label htmlFor="message" className="block text-xs font-semibold text-steel mb-1">
                       Message
                     </label>
-                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={5} required className="w-full resize-none" />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={3} required className="w-full resize-none text-sm" />
                   </div>
 
                   <Button type="submit" className="w-full btn-hero">
@@ -169,20 +169,20 @@ const Contact = () => {
 
         {/* Resume Section */}
         <div className="text-center mb-16">
-          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-6 max-w-md mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in mt-8">
-            <h3 className="text-lg font-orbitron font-bold text-steel mb-4">My Resume</h3>
-            <div className="bg-muted/50 rounded-lg p-4 mb-4">
-              <div className="w-full h-48 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
+          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-4 max-w-sm mx-auto hover:bg-card/90 transition-all duration-300 animate-fade-in mt-8">
+            <h3 className="text-base font-orbitron font-bold text-steel mb-3">My Resume</h3>
+            <div className="bg-muted/50 rounded-lg p-3 mb-3">
+              <div className="w-full h-32 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">📄</span>
+                  <div className="w-12 h-12 bg-secondary/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                    <span className="text-lg">📄</span>
                   </div>
-                  <p className="text-sm text-muted-foreground font-orbitron">Resume Preview</p>
+                  <p className="text-xs text-muted-foreground font-orbitron">Resume Preview</p>
                 </div>
               </div>
             </div>
-            <button className="btn-hero w-full">
-              <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="btn-hero w-full h-8 text-sm">
+              <svg className="h-3 w-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Download My Resume

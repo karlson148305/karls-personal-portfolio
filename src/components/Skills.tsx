@@ -104,16 +104,16 @@ const Skills = () => {
             <div className="grid gap-4">
               {skillCategories.map((category, index) => (
                 <Card key={index} className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:shadow-xl hover:scale-[1.05] hover:rotate-1 transition-all duration-500 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
-                  <div className="p-4">
-                    <h4 className="text-lg font-orbitron font-semibold text-steel mb-3 flex items-center">
-                      <div className="w-3 h-3 bg-secondary rounded-full mr-3 animate-pulse shadow-glow"></div>
+                  <div className="p-3">
+                    <h4 className="text-base font-orbitron font-semibold text-steel mb-2 flex items-center">
+                      <div className="w-2 h-2 bg-secondary rounded-full mr-2 animate-pulse shadow-glow"></div>
                       {category.name}
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1">
                       {category.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-sm hover:shadow-glow animate-fade-in"
+                          className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-sm hover:shadow-glow animate-fade-in"
                           style={{animationDelay: `${skillIndex * 100}ms`}}
                         >
                           {skill}
@@ -130,19 +130,19 @@ const Skills = () => {
         {/* Learning Journey */}
         <div className="mt-16">
           <Card className="card-mechanical bg-gradient-to-r from-secondary/5 to-accent/5 border-secondary/20">
-            <div className="p-8 text-center">
-              <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
+            <div className="p-5 text-center">
+              <h3 className="text-base font-orbitron font-bold text-steel mb-2">
                 Continuous Learning
               </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-4 max-w-xl mx-auto text-sm">
                 Currently expanding my expertise in advanced simulation tools and exploring cutting-edge 
                 materials research. Always eager to learn new technologies that can enhance mechanical design processes.
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap justify-center gap-2">
                 {['Advanced Simulation', 'Materials Science', 'Sustainable Design', 'Industry 4.0'].map((area, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-orbitron font-medium"
+                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-lg font-orbitron font-medium text-sm"
                   >
                     {area}
                   </span>

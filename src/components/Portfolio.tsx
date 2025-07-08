@@ -157,11 +157,11 @@ const Portfolio = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
                 
-                <div className="p-6">
+                <div className="p-4">
                   {/* Project Header */}
-                  <div className="mb-4">
+                  <div className="mb-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-orbitron font-medium text-secondary">
+                    <span className="text-xs font-orbitron font-medium text-secondary">
                       {project.category}
                     </span>
                     <div className="flex items-center space-x-2">
@@ -175,41 +175,41 @@ const Portfolio = () => {
                       </Button>
                     </div>
                   </div>
-                  <h3 className="text-lg font-orbitron font-bold text-steel mb-2">
+                  <h3 className="text-base font-orbitron font-bold text-steel mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tools & Collaboration */}
-                <div className="mb-4">
-                  <div className="mb-3">
-                    <h4 className="text-sm font-semibold text-steel mb-2">Tools Used:</h4>
-                    <div className="flex flex-wrap gap-2">
+                <div className="mb-3">
+                  <div className="mb-2">
+                    <h4 className="text-xs font-semibold text-steel mb-1">Tools Used:</h4>
+                    <div className="flex flex-wrap gap-1">
                       {project.tools.map((tool, toolIndex) => (
                         <span 
                           key={toolIndex}
-                          className="px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full font-medium"
+                          className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium"
                         >
                           {tool}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     <strong>Teamwork:</strong> {project.teamwork}
                   </p>
                 </div>
 
                 {/* Key Features */}
                 <div className="flex-grow">
-                  <h4 className="text-sm font-semibold text-steel mb-2">Key Features:</h4>
-                  <ul className="space-y-1">
+                  <h4 className="text-xs font-semibold text-steel mb-1">Key Features:</h4>
+                  <ul className="space-y-0.5">
                     {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
+                      <li key={featureIndex} className="flex items-center text-xs text-muted-foreground">
+                        <div className="w-1 h-1 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
@@ -217,12 +217,12 @@ const Portfolio = () => {
                 </div>
 
                   {/* Project Link */}
-                  <div className="mt-6 pt-4 border-t border-border">
+                  <div className="mt-3 pt-2 border-t border-border">
                     <Button 
                       onClick={() => window.open(project.github, '_blank')}
-                      className="w-full btn-hero transform hover:scale-105 active:scale-95 transition-transform"
+                      className="w-full btn-hero transform hover:scale-105 active:scale-95 transition-transform h-8 text-sm"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-3 w-3 mr-2" />
                       View on GitHub
                     </Button>
                   </div>

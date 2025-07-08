@@ -65,27 +65,27 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card key={index} className="card-mechanical group text-center hover:bg-card/80 bg-card/70 backdrop-blur-sm hover:scale-105 hover:rotate-1 transition-all duration-500 animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
-              <div className="p-6">
+              <div className="p-4">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-glow animate-pulse">
+                <div className="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-glow animate-pulse">
                   {service.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-orbitron font-bold text-steel mb-3">
+                <h3 className="text-base font-orbitron font-bold text-steel mb-2">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
+                    <div key={featureIndex} className="flex items-center text-xs text-muted-foreground">
+                      <div className="w-1 h-1 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
                       {feature}
                     </div>
                   ))}
@@ -97,16 +97,16 @@ const Services = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <div className="bg-card border border-border rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-orbitron font-bold text-steel mb-3">
+          <div className="bg-card border border-border rounded-xl p-5 max-w-xl mx-auto">
+            <h3 className="text-base font-orbitron font-bold text-steel mb-2">
               Ready to Start Your Project?
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4 text-sm">
               Let's discuss how we can bring your mechanical engineering ideas to life through innovative design and collaboration.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-hero"
+              className="btn-hero h-8 text-sm"
             >
               Get In Touch
             </button>
