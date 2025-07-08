@@ -187,7 +187,7 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground">© 2025 Karl Friedrich NGUEKO TCHINDEU. All right reserved.</p>
+          <p className="text-muted-foreground">© 2025 Karl Friedrich NGUEKO TCHINDEU. All rights reserved.</p>
           <p className="text-sm text-muted-foreground mt-2">
             "Engineering with purpose. Designing for performance."
           </p>
