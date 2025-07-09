@@ -9,6 +9,22 @@ const Skills = () => {
 
   const engineeringDomains = [
     {
+      id: 'project',
+      name: 'Project Management',
+      icon: Users,
+      keySkills: [
+        'Project Planning & Scheduling',
+        'Risk Management',
+        'Cost Estimation & Budgeting',
+        'Communication & Team Leadership'
+      ],
+      tools: [
+        'Microsoft Project',
+        'Microsoft Excel',
+        'FMEA Tools'
+      ]
+    },
+    {
       id: 'mechanical',
       name: 'Mechanical Engineering',
       icon: Wrench,
@@ -29,37 +45,6 @@ const Skills = () => {
       ]
     },
     {
-      id: 'electrical',
-      name: 'Electrical & Electronics Engineering',
-      icon: Zap,
-      keySkills: [
-        'Circuit Design (Analog/Digital)',
-        'Control Systems'
-      ],
-      tools: [
-        'Proteus / Multisim / LTspice',
-        'MATLAB / Simulink',
-        'Arduino IDE',
-        'AutoCAD Electrical'
-      ]
-    },
-    {
-      id: 'project',
-      name: 'Project Management',
-      icon: Users,
-      keySkills: [
-        'Project Planning & Scheduling',
-        'Risk Management',
-        'Cost Estimation & Budgeting',
-        'Communication & Team Leadership'
-      ],
-      tools: [
-        'Microsoft Project',
-        'Microsoft Excel',
-        'FMEA Tools'
-      ]
-    },
-    {
       id: 'material',
       name: 'Material Science',
       icon: Atom,
@@ -72,6 +57,21 @@ const Skills = () => {
       ],
       tools: [
         'Ansys Granta (Material Selector)'
+      ]
+    },
+    {
+      id: 'electrical',
+      name: 'Electrical & Electronics Engineering',
+      icon: Zap,
+      keySkills: [
+        'Circuit Design (Analog/Digital)',
+        'Control Systems'
+      ],
+      tools: [
+        'Proteus / Multisim / LTspice',
+        'MATLAB / Simulink',
+        'Arduino IDE',
+        'AutoCAD Electrical'
       ]
     }
   ];
@@ -109,16 +109,16 @@ const Skills = () => {
       <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-foreground mb-3 animate-fade-in typing-animation">
             Engineering Expertise
           </h2>
-          <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
+          <p className="text-lg text-muted-foreground mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
             Comprehensive competencies across four engineering domains
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
         </div>
 
-        <Tabs defaultValue="mechanical" className="w-full">
+        <Tabs defaultValue="project" className="w-full">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 bg-card/70 backdrop-blur-sm">
             {engineeringDomains.map((domain) => {
               const IconComponent = domain.icon;
@@ -126,7 +126,7 @@ const Skills = () => {
                 <TabsTrigger 
                   key={domain.id} 
                   value={domain.id}
-                  className="flex items-center gap-2 text-white data-[state=active]:text-foreground data-[state=active]:bg-secondary"
+                  className="flex items-center gap-2 text-foreground data-[state=active]:text-foreground data-[state=active]:bg-secondary"
                 >
                   <IconComponent className="w-4 h-4" />
                   <span className="hidden sm:inline font-orbitron">{domain.name.split(' ')[0]}</span>
@@ -142,7 +142,7 @@ const Skills = () => {
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <IconComponent className="w-8 h-8 text-secondary" />
-                    <h3 className="text-2xl font-orbitron font-bold text-white">
+                    <h3 className="text-2xl font-orbitron font-bold text-foreground">
                       {domain.name}
                     </h3>
                   </div>
@@ -154,7 +154,7 @@ const Skills = () => {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Settings className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-white">
+                        <h4 className="text-xl font-orbitron font-semibold text-foreground">
                           Key Skills
                         </h4>
                       </div>
@@ -166,7 +166,7 @@ const Skills = () => {
                             style={{animationDelay: `${index * 100}ms`}}
                           >
                             <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                            <span className="text-white font-medium">{skill}</span>
+                            <span className="text-foreground font-medium">{skill}</span>
                           </div>
                         ))}
                       </div>
@@ -178,7 +178,7 @@ const Skills = () => {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Monitor className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-white">
+                        <h4 className="text-xl font-orbitron font-semibold text-foreground">
                           Tools & Software
                         </h4>
                       </div>
