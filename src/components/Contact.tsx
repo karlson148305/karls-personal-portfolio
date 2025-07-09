@@ -5,6 +5,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Mail, Linkedin, Github, Download, Phone, MapPin } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import emailjs from '@emailjs/browser';
 import contactBackground from '../assets/contact-background.jpg';
 const Contact = () => {
   const {
@@ -15,6 +16,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -25,24 +27,52 @@ const Contact = () => {
       [name]: value
     }));
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to a backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!"
-    });
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Initialize EmailJS
+      emailjs.init('G_FmGUO9HTrM5AHZA');
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_w9nt2df',
+        'template_yq6hyzs',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'karl.ngueko@2028.icam.fr'
+        }
+      );
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for your message. I'll get back to you soon!"
+      });
+      
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "Sorry, there was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const contactInfo = [{
     icon: <Mail className="h-5 w-5" />,
     title: "Email",
-    value: "karl.ngueko@example.com",
-    link: "mailto:karl.ngueko@example.com"
+    value: "karl.ngueko@2028.icam.fr",
+    link: "mailto:karl.ngueko@2028.icam.fr"
   }, {
     icon: <Linkedin className="h-5 w-5" />,
     title: "LinkedIn",
@@ -156,9 +186,9 @@ const Contact = () => {
                     <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={3} required className="w-full resize-none text-sm" />
                   </div>
 
-                  <Button type="submit" className="w-full btn-hero">
+                  <Button type="submit" disabled={isSubmitting} className="w-full btn-hero">
                     <Mail className="h-4 w-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </div>
