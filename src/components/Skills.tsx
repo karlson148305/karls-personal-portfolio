@@ -1,27 +1,79 @@
 import { Card } from './ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
 import { useState, useEffect } from 'react';
+import { Wrench, Zap, Users, Atom, Settings, Code, Monitor, Calculator } from 'lucide-react';
 import skillsGranta from '../assets/skills-granta.jpg';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const skills = [
-    { name: "SolidWorks", level: 90, category: "CAD Software" },
-    { name: "Ansys Granta", level: 70, category: "Materials Analysis" },
-    { name: "MS Office Pack", level: 95, category: "Productivity" },
-    { name: "English", level: 80, category: "Languages (B2)" },
-    { name: "French", level: 100, category: "Languages (Native)" },
-    { name: "Project Management", level: 75, category: "Leadership" },
-    { name: "Critical Thinking", level: 85, category: "Problem Solving" },
-    { name: "Team Collaboration", level: 88, category: "Soft Skills" }
-  ];
-
-  const skillCategories = [
-    { name: "CAD & Design", skills: ["SolidWorks", "3D Modeling", "Technical Drawing"] },
-    { name: "Analysis & Simulation", skills: ["Ansys Granta", "Materials Research", "Performance Analysis"] },
-    { name: "Languages", skills: ["French (Native)", "English (B2)", "Technical Communication"] },
-    { name: "Project Management", skills: ["Agile Methodology", "Team Leadership", "Documentation"] },
-    { name: "Soft Skills", skills: ["Critical Thinking", "Problem Solving", "Communication"] }
+  const engineeringDomains = [
+    {
+      id: 'mechanical',
+      name: 'Mechanical Engineering',
+      icon: Wrench,
+      keySkills: [
+        'CAD Design & Drafting',
+        'Mechanical Systems Design',
+        'Finite Element Analysis (FEA)',
+        'Design for Manufacturing/Assembly (DFM/DFA)',
+        'Fluid Mechanics',
+        'Mechanical Testing'
+      ],
+      tools: [
+        'SolidWorks',
+        'AutoCAD / Inventor',
+        'Fusion 360',
+        'PTC Creo',
+        'CFD Tools (Fluent, OpenFOAM)'
+      ]
+    },
+    {
+      id: 'electrical',
+      name: 'Electrical & Electronics Engineering',
+      icon: Zap,
+      keySkills: [
+        'Circuit Design (Analog/Digital)',
+        'Control Systems'
+      ],
+      tools: [
+        'Proteus / Multisim / LTspice',
+        'MATLAB / Simulink',
+        'Arduino IDE',
+        'AutoCAD Electrical'
+      ]
+    },
+    {
+      id: 'project',
+      name: 'Project Management',
+      icon: Users,
+      keySkills: [
+        'Project Planning & Scheduling',
+        'Risk Management',
+        'Cost Estimation & Budgeting',
+        'Communication & Team Leadership'
+      ],
+      tools: [
+        'Microsoft Project',
+        'Microsoft Excel',
+        'FMEA Tools'
+      ]
+    },
+    {
+      id: 'material',
+      name: 'Material Science',
+      icon: Atom,
+      keySkills: [
+        'Material Selection & Characterization',
+        'Failure Analysis',
+        'Corrosion & Fatigue Testing',
+        'Phase Diagrams & Heat Treatment',
+        'Composites & Polymers'
+      ],
+      tools: [
+        'Ansys Granta (Material Selector)'
+      ]
+    }
   ];
 
   useEffect(() => {
@@ -58,99 +110,96 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
-            My Skills
+            Engineering Expertise
           </h2>
           <p className="text-lg text-gray-300 mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
-            Expertise across mechanical design and engineering tools
+            Comprehensive competencies across four engineering domains
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Skill Bars */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
-              Proficiency Levels
-            </h3>
-            {skills.map((skill, index) => (
-              <div key={index} className="space-y-2 animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="font-semibold text-white">{skill.name}</span>
-                    <span className="text-sm text-gray-300 ml-2">({skill.category})</span>
-                  </div>
-                  <span className="text-secondary font-orbitron font-bold">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="skill-bar hover:shadow-lg transition-shadow duration-300">
-                  <div 
-                    className="skill-progress hover:shadow-glow"
-                    style={{
-                      width: isVisible ? `${skill.level}%` : '0%',
-                      transitionDelay: `${index * 200}ms`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <Tabs defaultValue="mechanical" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 bg-card/70 backdrop-blur-sm">
+            {engineeringDomains.map((domain) => {
+              const IconComponent = domain.icon;
+              return (
+                <TabsTrigger 
+                  key={domain.id} 
+                  value={domain.id}
+                  className="flex items-center gap-2 text-white data-[state=active]:text-foreground data-[state=active]:bg-secondary"
+                >
+                  <IconComponent className="w-4 h-4" />
+                  <span className="hidden sm:inline font-orbitron">{domain.name.split(' ')[0]}</span>
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
 
-          {/* Skill Categories */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-orbitron font-bold text-white mb-4 animate-slide-up">
-              Core Competencies
-            </h3>
-            <div className="grid gap-4">
-              {skillCategories.map((category, index) => (
-                <Card key={index} className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:shadow-xl hover:scale-[1.05] hover:rotate-1 transition-all duration-500 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
-                  <div className="p-3">
-                    <h4 className="text-base font-orbitron font-semibold text-steel mb-2 flex items-center">
-                      <div className="w-2 h-2 bg-secondary rounded-full mr-2 animate-pulse shadow-glow"></div>
-                      {category.name}
-                    </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {category.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-sm hover:shadow-glow animate-fade-in"
-                          style={{animationDelay: `${skillIndex * 100}ms`}}
-                        >
-                          {skill}
-                        </span>
-                      ))}
+          {engineeringDomains.map((domain) => {
+            const IconComponent = domain.icon;
+            return (
+              <TabsContent key={domain.id} value={domain.id} className="space-y-6">
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <IconComponent className="w-8 h-8 text-secondary" />
+                    <h3 className="text-2xl font-orbitron font-bold text-white">
+                      {domain.name}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Key Skills */}
+                  <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300">
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <Settings className="w-5 h-5 text-secondary" />
+                        <h4 className="text-xl font-orbitron font-semibold text-white">
+                          Key Skills
+                        </h4>
+                      </div>
+                      <div className="space-y-3">
+                        {domain.keySkills.map((skill, index) => (
+                          <div 
+                            key={index} 
+                            className="flex items-center gap-3 p-3 bg-secondary/5 rounded-lg border border-secondary/20 hover:bg-secondary/10 transition-all duration-300 animate-fade-in"
+                            style={{animationDelay: `${index * 100}ms`}}
+                          >
+                            <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+                            <span className="text-white font-medium">{skill}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
+                  </Card>
 
-        {/* Learning Journey */}
-        <div className="mt-16">
-          <Card className="card-mechanical bg-gradient-to-r from-secondary/5 to-accent/5 border-secondary/20">
-            <div className="p-5 text-center">
-              <h3 className="text-base font-orbitron font-bold text-steel mb-2">
-                Continuous Learning
-              </h3>
-              <p className="text-muted-foreground mb-4 max-w-xl mx-auto text-sm">
-                Currently expanding my expertise in advanced simulation tools and exploring cutting-edge 
-                materials research. Always eager to learn new technologies that can enhance mechanical design processes.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Advanced Simulation', 'Materials Science', 'Sustainable Design', 'Industry 4.0'].map((area, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-lg font-orbitron font-medium text-sm"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Card>
-        </div>
+                  {/* Tools & Software */}
+                  <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300">
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <Monitor className="w-5 h-5 text-secondary" />
+                        <h4 className="text-xl font-orbitron font-semibold text-white">
+                          Tools & Software
+                        </h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {domain.tools.map((tool, index) => (
+                          <span
+                            key={index}
+                            className="px-3 py-2 bg-secondary/10 text-secondary rounded-lg font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-105 transition-all duration-300 animate-fade-in"
+                            style={{animationDelay: `${index * 150}ms`}}
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
       </div>
     </section>
   );
