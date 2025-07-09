@@ -4,8 +4,8 @@ import { Github } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-project.png';
-import droneFlightImage from '../assets/drone-in-flight.webp';
-import boatImage from '../assets/boat-image.png';
+import droneProjectImage from '../assets/drone-project-combined.jpg';
+import boatProjectImage from '../assets/boat-project-combined.jpg';
 
 const Portfolio = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -76,7 +76,7 @@ const Portfolio = () => {
       tools: ["CAD Design", "Electrical Systems", "Control Algorithms", "Testing"],
       teamwork: "Multi-disciplinary project",
       github: "https://github.com/karlson148305/drone-project",
-      image: droneFlightImage,
+      image: droneProjectImage,
       features: [
         "Aerodynamic optimization",
         "Energy system integration",
@@ -91,7 +91,7 @@ const Portfolio = () => {
       tools: ["CAD Modeling", "Servo Control", "Hydraulic Systems", "Fluid Mechanics"],
       teamwork: "Multi-disciplinary engineering project",
       github: "https://github.com/karlson148305/Boat-Project",
-      image: boatImage,
+      image: boatProjectImage,
       features: [
         "SolidWorks CAD modeling",
         "Servo-rudder control system",
