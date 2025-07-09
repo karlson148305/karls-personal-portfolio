@@ -2,7 +2,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
 import { useEffect, useRef } from 'react';
-import portfolioFEA from '../assets/portfolio-fea.jpg';
+import portfolioBackground from '../assets/portfolio-background.jpg';
 
 const Portfolio = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -104,7 +104,7 @@ const Portfolio = () => {
       id="portfolio" 
       className="py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${portfolioFEA})`,
+        backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.85), rgba(33, 43, 54, 0.85)), url(${portfolioBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
