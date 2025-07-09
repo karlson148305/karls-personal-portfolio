@@ -1,5 +1,5 @@
 import { Card } from './ui/card';
-import karlProfile from '../assets/karl-profile.jpg';
+import karlProfile from '../assets/karl-profile-2.jpg';
 import aboutBlueprint from '../assets/about-blueprint.jpg';
 const About = () => {
   return <section 

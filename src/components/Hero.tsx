@@ -1,5 +1,5 @@
 import { Button } from './ui/button';
-import karlProfile from '../assets/karl-profile.jpg';
+import karlProfile from '../assets/karl-profile-1.jpg';
 import mechanicalPattern from '../assets/mechanical-pattern.jpg';
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
