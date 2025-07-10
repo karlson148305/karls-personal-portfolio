@@ -6,6 +6,7 @@ import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-project.png';
 import droneProjectImage from '../assets/drone-project-combined.jpg';
 import boatProjectImage from '../assets/boat-project-combined.jpg';
+import roomDesignImage from '../assets/room-design-combined.jpg';
 
 const Portfolio = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -99,6 +100,21 @@ const Portfolio = () => {
         "Marine systems integration"
       ],
       category: "Marine Engineering"
+    },
+    {
+      title: "Room-Design",
+      description: "A one-month leisure project where I modeled my entire room in SolidWorks, focusing on accurate spatial dimensions, furniture layout, and realistic assembly of individual components. This exercise enhanced my 3D modeling skills and attention to detail in a real-world environment.",
+      tools: ["SolidWorks", "3D Modeling", "CAD", "Design"],
+      teamwork: "Individual leisure project",
+      github: "https://github.com/karlson148305/Room-Design-Leisure-",
+      image: roomDesignImage,
+      features: [
+        "Accurate spatial dimensions",
+        "Detailed furniture layout",
+        "Realistic component assembly",
+        "Enhanced 3D modeling skills"
+      ],
+      category: "CAD Design"
     }
   ];
 
