@@ -1,7 +1,6 @@
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
-import { useEffect, useRef } from 'react';
 import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-generated.jpg';
 import droneAssemblyImage from '../assets/drone-assembly-generated.jpg';
@@ -11,51 +10,6 @@ import boatControllerImage from '../assets/boat-controller-generated.jpg';
 import roomDesignImage from '../assets/room-design-generated.jpg';
 
 const Portfolio = () => {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent, index: number) => {
-      const card = cardRefs.current[index];
-      if (!card) return;
-
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
-
-      card.style.setProperty('--rotate-x', `${rotateX}deg`);
-      card.style.setProperty('--rotate-y', `${rotateY}deg`);
-      card.style.setProperty('--x', `${(x / rect.width) * 100}%`);
-      card.style.setProperty('--y', `${(y / rect.height) * 100}%`);
-    };
-
-    const handleMouseLeave = (index: number) => {
-      const card = cardRefs.current[index];
-      if (!card) return;
-
-      card.style.setProperty('--rotate-x', '0deg');
-      card.style.setProperty('--rotate-y', '0deg');
-    };
-
-    cardRefs.current.forEach((card, index) => {
-      if (card) {
-        const mouseMoveHandler = (e: MouseEvent) => handleMouseMove(e, index);
-        const mouseLeaveHandler = () => handleMouseLeave(index);
-
-        card.addEventListener('mousemove', mouseMoveHandler);
-        card.addEventListener('mouseleave', mouseLeaveHandler);
-
-        return () => {
-          card.removeEventListener('mousemove', mouseMoveHandler);
-          card.removeEventListener('mouseleave', mouseLeaveHandler);
-        };
-      }
-    });
-  }, []);
 
   const projects = [
     {
@@ -147,12 +101,9 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              ref={(el) => (cardRefs.current[index] = el)}
-              className="group relative overflow-hidden bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/50 hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20 animate-fade-in" 
+              className="group relative overflow-hidden bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/50 hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20 hover:scale-105 animate-fade-in" 
               style={{ 
-                animationDelay: `${index * 200}ms`,
-                transform: 'perspective(1000px) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0))',
-                transformStyle: 'preserve-3d'
+                animationDelay: `${index * 200}ms`
               }}
             >
               <div className="relative">
