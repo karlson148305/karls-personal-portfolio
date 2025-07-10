@@ -4,7 +4,8 @@ import { Github } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-project.png';
-import droneProjectImage from '../assets/drone-project-combined.jpg';
+import droneAssemblyImage from '/lovable-uploads/af60da23-bed4-43a2-9ff4-8a2b800f26ad.png';
+import droneFlightImage from '/lovable-uploads/319e5090-e4ae-45eb-b6da-efa03ab7470d.png';
 import boatProjectImage from '../assets/boat-project-combined.jpg';
 import roomDesignImage from '../assets/room-design-combined.jpg';
 
@@ -77,7 +78,7 @@ const Portfolio = () => {
       tools: ["CAD Design", "Electrical Systems", "Control Algorithms", "Testing"],
       teamwork: "Multi-disciplinary project",
       github: "https://github.com/karlson148305/drone-project",
-      image: droneProjectImage,
+      image: droneAssemblyImage,
       features: [
         "Aerodynamic optimization",
         "Energy system integration",
