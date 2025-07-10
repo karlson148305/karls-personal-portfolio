@@ -22,16 +22,16 @@
     --primary: 210 17% 18%;
     --primary-foreground: 0 0% 98%;
 
-    /* Secondary - Electric Blue */
-    --secondary: 207 90% 54%;
+    /* Secondary - Emerald Green */
+    --secondary: 142 76% 36%;
     --secondary-foreground: 0 0% 98%;
 
     /* Muted variations */
     --muted: 210 40% 96%;
     --muted-foreground: 210 17% 48%;
 
-    /* Accent - Bright Blue */
-    --accent: 207 90% 54%;
+    /* Accent - Bright Green */
+    --accent: 142 69% 58%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -39,24 +39,24 @@
 
     --border: 210 17% 90%;
     --input: 210 17% 90%;
-    --ring: 207 90% 54%;
+    --ring: 142 76% 36%;
 
     /* Engineering-specific colors */
     --steel: 210 17% 18%;
     --steel-light: 210 17% 30%;
-    --electric-blue: 207 90% 54%;
-    --electric-blue-light: 207 90% 64%;
+    --electric-green: 142 76% 36%;
+    --electric-green-light: 142 69% 58%;
     --mechanical-orange: 25 95% 53%;
-    --blueprint-blue: 214 77% 52%;
+    --blueprint-green: 158 64% 52%;
 
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--steel)), hsl(var(--steel-light)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--electric-blue-light)));
-    --gradient-mechanical: linear-gradient(45deg, hsl(var(--steel)) 0%, hsl(var(--electric-blue)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--electric-green)), hsl(var(--electric-green-light)));
+    --gradient-mechanical: linear-gradient(45deg, hsl(var(--steel)) 0%, hsl(var(--electric-green)) 100%);
 
     /* Shadows */
     --shadow-mechanical: 0 10px 30px -5px hsl(var(--steel) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--electric-blue) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--electric-green) / 0.3);
     --shadow-card: 0 4px 20px hsl(var(--steel) / 0.1);
 
     /* Animations */
@@ -79,7 +79,7 @@
 
     --sidebar-border: 220 13% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 142 76% 36%;
   }
 
   .dark {
@@ -95,13 +95,13 @@
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 207 90% 54%;
+    --secondary: 142 76% 36%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 207 90% 54%;
+    --accent: 142 69% 58%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -109,7 +109,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 207 90% 54%;
+    --ring: 142 76% 36%;
     
     /* Engineering-specific colors for dark mode */
     --steel: 210 40% 98%;
@@ -122,7 +122,7 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 142 76% 36%;
   }
 }
 
@@ -175,13 +175,13 @@
   .mechanical-pattern {
     background-image: 
       radial-gradient(circle at 25% 25%, hsl(var(--steel) / 0.1) 2px, transparent 2px),
-      radial-gradient(circle at 75% 75%, hsl(var(--electric-blue) / 0.1) 2px, transparent 2px);
+      radial-gradient(circle at 75% 75%, hsl(var(--electric-green) / 0.1) 2px, transparent 2px);
     background-size: 40px 40px;
   }
 
   /* Glow effects */
-  .glow-blue {
-    box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.5);
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--electric-green) / 0.5);
   }
 
   .shadow-glow {

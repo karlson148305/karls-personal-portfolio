@@ -60,12 +60,12 @@ export default {
 					DEFAULT: 'hsl(var(--steel))',
 					light: 'hsl(var(--steel-light))'
 				},
-				'electric-blue': {
-					DEFAULT: 'hsl(var(--electric-blue))',
-					light: 'hsl(var(--electric-blue-light))'
+				'electric-green': {
+					DEFAULT: 'hsl(var(--electric-green))',
+					light: 'hsl(var(--electric-green-light))'
 				},
 				'mechanical-orange': 'hsl(var(--mechanical-orange))',
-				'blueprint-blue': 'hsl(var(--blueprint-blue))',
+				'blueprint-green': 'hsl(var(--blueprint-green))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
