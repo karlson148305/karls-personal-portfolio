@@ -3,13 +3,12 @@ import { Button } from './ui/button';
 import { Github } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import portfolioBackground from '../assets/portfolio-background.jpg';
-import phoneHolderImage from '../assets/phone-holder-project.png';
-import droneAssemblyImage from '/lovable-uploads/af60da23-bed4-43a2-9ff4-8a2b800f26ad.png';
-import droneFlightImage from '/lovable-uploads/319e5090-e4ae-45eb-b6da-efa03ab7470d.png';
-import boatMainImage from '/lovable-uploads/e4ed5955-d9b5-40d3-ba3c-ee9c5b5d2706.png';
-import boatControllerImage from '/lovable-uploads/2ea911e9-dc91-4bbf-ade1-4550f024eba9.png';
-
-import roomDesignImage from '../assets/room-design-combined.jpg';
+import phoneHolderImage from '../assets/phone-holder-generated.jpg';
+import droneAssemblyImage from '../assets/drone-assembly-generated.jpg';
+import droneFlightImage from '../assets/drone-flight-generated.jpg';
+import boatMainImage from '../assets/boat-main-generated.jpg';
+import boatControllerImage from '../assets/boat-controller-generated.jpg';
+import roomDesignImage from '../assets/room-design-generated.jpg';
 
 const Portfolio = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -149,113 +148,125 @@ const Portfolio = () => {
             <Card 
               key={index} 
               ref={(el) => (cardRefs.current[index] = el)}
-              className="card-project parallax-tilt group animate-fade-in" 
-              style={{ animationDelay: `${index * 200}ms` }}
+              className="group relative overflow-hidden bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/50 hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20 animate-fade-in" 
+              style={{ 
+                animationDelay: `${index * 200}ms`,
+                transform: 'perspective(1000px) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0))',
+                transformStyle: 'preserve-3d'
+              }}
             >
-              <div className="overflow-hidden">
+              <div className="relative">
+                {/* Animated gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
                 {/* Project Image Section */}
-                <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border group-hover:from-secondary/5 group-hover:to-accent/5 transition-all duration-500">
+                <div className="relative h-56 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-muted/5"></div>
                   {project.images ? (
-                    <div className="w-full h-full grid grid-cols-2 gap-0.5">
+                    <div className="w-full h-full grid grid-cols-2 gap-1 p-2">
                       {project.images.map((img, imgIndex) => (
-                        <img 
-                          key={imgIndex}
-                          src={img} 
-                          alt={`${project.title} ${imgIndex + 1}`}
-                          className="w-full h-full object-contain bg-background group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <div key={imgIndex} className="relative overflow-hidden rounded-lg">
+                          <img 
+                            src={img} 
+                            alt={`${project.title} ${imgIndex + 1}`}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
                       ))}
                     </div>
                   ) : project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                    <>
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </>
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted/10 to-transparent">
                       <div className="text-center animate-pulse">
                         <div className="w-16 h-16 bg-secondary/20 rounded-lg mx-auto mb-3 flex items-center justify-center">
                           <span className="text-2xl">🔧</span>
                         </div>
-                        <p className="text-sm text-muted-foreground font-orbitron">
-                          Project Image
-                        </p>
-                        <p className="text-xs text-muted-foreground/70">
-                          Click to add image
-                        </p>
+                        <p className="text-sm text-muted-foreground font-orbitron">Project Image</p>
                       </div>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                
-                <div className="p-4">
-                  {/* Project Header */}
-                  <div className="mb-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-orbitron font-medium text-secondary">
+                  
+                  {/* Floating category badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-secondary/90 backdrop-blur-sm text-white text-xs font-orbitron font-medium rounded-full border border-secondary/20 shadow-lg">
                       {project.category}
                     </span>
-                    <div className="flex items-center space-x-2">
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => window.open(project.github, '_blank')}
-                        className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <Github className="h-4 w-4" />
-                      </Button>
+                  </div>
+                  
+                  {/* GitHub button overlay */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <Button 
+                      variant="secondary" 
+                      size="sm"
+                      onClick={() => window.open(project.github, '_blank')}
+                      className="backdrop-blur-sm bg-background/80 hover:bg-secondary/90 shadow-lg"
+                    >
+                      <Github className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-4">
+                  {/* Project Header */}
+                  <div>
+                    <h3 className="text-xl font-orbitron font-bold text-foreground mb-2 group-hover:text-secondary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Tools & Collaboration */}
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Tools Used</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tools.map((tool, toolIndex) => (
+                          <span 
+                            key={toolIndex}
+                            className="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md font-medium border border-accent/20 hover:bg-accent/20 transition-colors duration-200"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="text-xs text-muted-foreground">
+                      <strong className="text-foreground">Collaboration:</strong> {project.teamwork}
                     </div>
                   </div>
-                  <h3 className="text-base font-orbitron font-bold text-steel mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {project.description}
-                  </p>
-                </div>
 
-                {/* Tools & Collaboration */}
-                <div className="mb-3">
-                  <div className="mb-2">
-                    <h4 className="text-xs font-semibold text-steel mb-1">Tools Used:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {project.tools.map((tool, toolIndex) => (
-                        <span 
-                          key={toolIndex}
-                          className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded-full font-medium"
-                        >
-                          {tool}
-                        </span>
+                  {/* Key Features */}
+                  <div>
+                    <h4 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Key Features</h4>
+                    <ul className="space-y-1">
+                      {project.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 flex-shrink-0 opacity-70"></div>
+                          {feature}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Teamwork:</strong> {project.teamwork}
-                  </p>
-                </div>
-
-                {/* Key Features */}
-                <div className="flex-grow">
-                  <h4 className="text-xs font-semibold text-steel mb-1">Key Features:</h4>
-                  <ul className="space-y-0.5">
-                    {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-xs text-muted-foreground">
-                        <div className="w-1 h-1 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
                   {/* Project Link */}
-                  <div className="mt-3 pt-2 border-t border-border">
+                  <div className="pt-4 border-t border-border/50">
                     <Button 
                       onClick={() => window.open(project.github, '_blank')}
-                      className="w-full btn-hero transform hover:scale-105 active:scale-95 transition-transform h-8 text-sm"
+                      className="w-full bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90 text-white transform hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl h-10"
                     >
-                      <Github className="h-3 w-3 mr-2" />
+                      <Github className="h-4 w-4 mr-2" />
                       View on GitHub
                     </Button>
                   </div>
