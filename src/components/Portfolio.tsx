@@ -6,7 +6,9 @@ import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-project.png';
 import droneAssemblyImage from '/lovable-uploads/af60da23-bed4-43a2-9ff4-8a2b800f26ad.png';
 import droneFlightImage from '/lovable-uploads/319e5090-e4ae-45eb-b6da-efa03ab7470d.png';
-import boatProjectImage from '../assets/boat-project-combined.jpg';
+import boatMainImage from '/lovable-uploads/e4ed5955-d9b5-40d3-ba3c-ee9c5b5d2706.png';
+import boatControllerImage from '/lovable-uploads/2ea911e9-dc91-4bbf-ade1-4550f024eba9.png';
+
 import roomDesignImage from '../assets/room-design-combined.jpg';
 
 const Portfolio = () => {
@@ -78,7 +80,7 @@ const Portfolio = () => {
       tools: ["CAD Design", "Electrical Systems", "Control Algorithms", "Testing"],
       teamwork: "Multi-disciplinary project",
       github: "https://github.com/karlson148305/drone-project",
-      image: droneAssemblyImage,
+      images: [droneAssemblyImage, droneFlightImage],
       features: [
         "Aerodynamic optimization",
         "Energy system integration",
@@ -93,7 +95,7 @@ const Portfolio = () => {
       tools: ["CAD Modeling", "Servo Control", "Hydraulic Systems", "Fluid Mechanics"],
       teamwork: "Multi-disciplinary engineering project",
       github: "https://github.com/karlson148305/Boat-Project",
-      image: boatProjectImage,
+      images: [boatMainImage, boatControllerImage],
       features: [
         "SolidWorks CAD modeling",
         "Servo-rudder control system",
@@ -153,7 +155,18 @@ const Portfolio = () => {
               <div className="overflow-hidden">
                 {/* Project Image Section */}
                 <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border group-hover:from-secondary/5 group-hover:to-accent/5 transition-all duration-500">
-                  {project.image ? (
+                  {project.images ? (
+                    <div className="w-full h-full grid grid-cols-2 gap-0.5">
+                      {project.images.map((img, imgIndex) => (
+                        <img 
+                          key={imgIndex}
+                          src={img} 
+                          alt={`${project.title} ${imgIndex + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      ))}
+                    </div>
+                  ) : project.image ? (
                     <img 
                       src={project.image} 
                       alt={project.title}
