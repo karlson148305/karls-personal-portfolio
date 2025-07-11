@@ -109,7 +109,7 @@ const Skills = () => {
       <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 to-accent/5 animate-pulse"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-foreground mb-3 animate-fade-in typing-animation">
+          <h2 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-3 animate-fade-in typing-animation">
             Engineering Expertise
           </h2>
           <p className="text-lg text-muted-foreground mb-4 animate-fade-in" style={{animationDelay: '200ms'}}>
@@ -142,7 +142,7 @@ const Skills = () => {
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <IconComponent className="w-8 h-8 text-secondary" />
-                    <h3 className="text-2xl font-orbitron font-bold text-foreground">
+                    <h3 className="text-2xl font-orbitron font-bold text-white">
                       {domain.name}
                     </h3>
                   </div>
@@ -154,7 +154,7 @@ const Skills = () => {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Settings className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-foreground">
+                        <h4 className="text-xl font-orbitron font-semibold text-white">
                           Key Skills
                         </h4>
                       </div>
@@ -178,7 +178,7 @@ const Skills = () => {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Monitor className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-foreground">
+                        <h4 className="text-xl font-orbitron font-semibold text-white">
                           Tools & Software
                         </h4>
                       </div>
