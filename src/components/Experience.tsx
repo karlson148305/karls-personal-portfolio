@@ -8,7 +8,7 @@ const Experience = () => {
       company: "Schwing Stetter",
       position: "Production Intern", 
       location: "India",
-      period: "2024",
+      period: "2025",
       type: "International Internship",
       description: "International internship experience in construction equipment manufacturing. Exposed to advanced production techniques and global manufacturing standards in heavy machinery production, specifically transit mixers.",
       achievements: [
