@@ -23,7 +23,7 @@ const Experience = () => {
       company: "Nohi Chocolat",
       position: "Production Site Assistant",
       location: "Cameroon",
-      period: "2023",
+      period: "2024",
       type: "Internship",
       description: "Gained hands-on experience in industrial production processes, quality control, and manufacturing operations. Observed production line optimization and learned about efficient workflow management.",
       achievements: [
