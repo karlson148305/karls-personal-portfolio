@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./hooks/use-theme";
+import SkipLink from "./components/SkipLink";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -14,6 +15,7 @@ const App = () => (
     <ThemeProvider defaultTheme="light" storageKey="mechanical-portfolio-theme">
       <TooltipProvider>
         <div className="w-full">
+          <SkipLink />
           <Toaster />
           <Sonner />
           <BrowserRouter>

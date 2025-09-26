@@ -1,3 +1,4 @@
+import LoadingImage from './LoadingImage';
 import { Card } from './ui/card';
 import karlProfile from '../assets/karl-profile-2.jpg';
 import aboutBlueprint from '../assets/about-blueprint.jpg';
@@ -26,7 +27,12 @@ const About = () => {
           <div className="flex justify-center animate-fade-in">
             <div className="relative group">
               <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-lg glow-blue group-hover:scale-105 transition-all duration-500 animate-float">
-                <img src={karlProfile} alt="Karl Friedrich NGUEKO TCHINDEU" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <LoadingImage 
+                  src={karlProfile} 
+                  alt="Karl Friedrich NGUEKO TCHINDEU - Engineering student with passion for innovation" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                  skeletonClassName="w-full h-80 rounded-2xl"
+                />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-secondary text-secondary-foreground p-4 shadow-lg rounded-3xl py-[14px] px-[8px] animate-bounce hover:animate-pulse group-hover:scale-110 transition-all duration-300">
                 <p className="font-orbitron font-bold text-sm">Mechanical Design</p>

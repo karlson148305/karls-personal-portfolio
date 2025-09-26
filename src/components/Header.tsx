@@ -50,8 +50,8 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="text-foreground hover:text-secondary transition-colors font-medium">
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+            {menuItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="text-foreground hover:text-secondary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 rounded-md px-2 py-1" aria-label={`Navigate to ${item.name} section`}>
                 {item.name}
               </button>)}
             
@@ -59,19 +59,26 @@ const Header = () => {
             <a 
               href="/lovable-uploads/970f44f0-9c44-4c40-b019-273fbb9cb789.png" 
               download="Karl_Friedrich_NGUEKO_TCHINDEU_Resume.png"
-              className="btn-outline-hero text-sm px-4 py-2 inline-flex items-center"
+              className="btn-outline-hero text-sm px-4 py-2 inline-flex items-center focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 rounded-md"
+              aria-label="Download Karl Friedrich's resume as PDF"
             >
-              <Download className="h-4 w-4 mr-1" />
+              <Download className="h-4 w-4 mr-1" aria-hidden="true" />
               Resume
             </a>
             
             {/* Theme Toggle - Ball Bearing Style */}
-            <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="relative w-12 h-6 bg-muted rounded-full p-1 transition-all duration-300 hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" aria-label="Toggle theme">
+            <button 
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} 
+              className="relative w-12 h-6 bg-muted rounded-full p-1 transition-all duration-300 hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" 
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+              aria-pressed={theme === 'dark'}
+              role="switch"
+            >
               <div className={`absolute inset-1 w-4 h-4 bg-gradient-to-br from-steel to-steel-light rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}>
                 <div className="w-2 h-2 bg-secondary rounded-full opacity-60"></div>
               </div>
-              <Sun className={`absolute left-1.5 top-1.5 h-3 w-3 text-mechanical-orange transition-opacity ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`} />
-              <Moon className={`absolute right-1.5 top-1.5 h-3 w-3 text-blueprint-blue transition-opacity ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`} />
+              <Sun className={`absolute left-1.5 top-1.5 h-3 w-3 text-mechanical-orange transition-opacity ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`} aria-hidden="true" />
+              <Moon className={`absolute right-1.5 top-1.5 h-3 w-3 text-blueprint-blue transition-opacity ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`} aria-hidden="true" />
             </button>
           </nav>
 
@@ -90,13 +97,13 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && <div className="md:hidden">
+        {isMenuOpen && <nav className="md:hidden" role="navigation" aria-label="Mobile navigation">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card border border-border rounded-lg mt-2">
-              {menuItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-secondary transition-colors w-full text-left">
+              {menuItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-secondary transition-colors w-full text-left focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-inset rounded-md" aria-label={`Navigate to ${item.name} section`}>
                   {item.name}
                 </button>)}
             </div>
-          </div>}
+          </nav>}
       </div>
     </header>;
 };

@@ -1,3 +1,4 @@
+import LoadingImage from './LoadingImage';
 import { Button } from './ui/button';
 import karlProfile from '../assets/karl-profile-1.jpg';
 import mechanicalPattern from '../assets/mechanical-pattern.jpg';
@@ -28,6 +29,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6">
+              <span className="sr-only">Karl Friedrich NGUEKO TCHINDEU - </span>
               KARL FRIEDRICH
               <br />
               <span className="text-gradient">NGUEKO TCHINDEU</span>
@@ -59,11 +61,16 @@ const Hero = () => {
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-secondary glow-blue animate-float">
-                <img src={karlProfile} alt="Karl Friedrich NGUEKO TCHINDEU" className="w-full h-full object-cover" />
+                <LoadingImage 
+                  src={karlProfile} 
+                  alt="Karl Friedrich NGUEKO TCHINDEU - Aspiring Mechanical Design Engineer" 
+                  className="w-full h-full object-cover" 
+                  skeletonClassName="w-full h-full rounded-full"
+                />
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-secondary/20 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-mechanical-orange/20 rounded-full animate-pulse delay-1000"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-secondary/20 rounded-full animate-pulse" aria-hidden="true"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-mechanical-orange/20 rounded-full animate-pulse delay-1000" aria-hidden="true"></div>
             </div>
           </div>
         </div>
