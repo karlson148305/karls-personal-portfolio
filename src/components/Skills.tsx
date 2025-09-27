@@ -1,8 +1,11 @@
 import { Card } from './ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
+import { Badge } from './ui/badge';
 import { useState, useEffect } from 'react';
 import { Wrench, Zap, Users, Atom, Settings, Code, Monitor, Calculator } from 'lucide-react';
 import skillsGranta from '../assets/skills-granta.jpg';
+import { PulsingDot, ProgressiveReveal } from './InteractiveElements';
+import { FloatingElement } from './MicroInteractions';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -150,51 +153,59 @@ const Skills = () => {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Key Skills */}
-                  <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300">
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-4">
-                        <Settings className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-white">
-                          Key Skills
-                        </h4>
+                  <FloatingElement intensity={0.2}>
+                    <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300 enhanced-hover h-full">
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-4">
+                          <Settings className="w-5 h-5 text-secondary animate-spin" style={{animationDuration: '3s'}} />
+                          <h4 className="text-xl font-orbitron font-semibold text-white">
+                            Key Skills
+                          </h4>
+                        </div>
+                        <div className="space-y-3">
+                          {domain.keySkills.map((skill, index) => (
+                            <ProgressiveReveal 
+                              key={index} 
+                              delay={index * 100}
+                              direction="left"
+                            >
+                              <div className="flex items-center gap-3 p-3 bg-secondary/5 rounded-lg border border-secondary/20 hover:bg-secondary/10 transition-all duration-300 enhanced-hover">
+                                <PulsingDot className="flex-shrink-0" />
+                                <span className="text-foreground font-medium">{skill}</span>
+                              </div>
+                            </ProgressiveReveal>
+                          ))}
+                        </div>
                       </div>
-                      <div className="space-y-3">
-                        {domain.keySkills.map((skill, index) => (
-                          <div 
-                            key={index} 
-                            className="flex items-center gap-3 p-3 bg-secondary/5 rounded-lg border border-secondary/20 hover:bg-secondary/10 transition-all duration-300 animate-fade-in"
-                            style={{animationDelay: `${index * 100}ms`}}
-                          >
-                            <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                            <span className="text-foreground font-medium">{skill}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </FloatingElement>
 
                   {/* Tools & Software */}
-                  <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300">
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-4">
-                        <Monitor className="w-5 h-5 text-secondary" />
-                        <h4 className="text-xl font-orbitron font-semibold text-white">
-                          Tools & Software
-                        </h4>
+                  <FloatingElement intensity={0.2}>
+                    <Card className="card-mechanical bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300 enhanced-hover h-full">
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-4">
+                          <Monitor className="w-5 h-5 text-secondary" />
+                          <h4 className="text-xl font-orbitron font-semibold text-white">
+                            Tools & Software
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {domain.tools.map((tool, index) => (
+                            <ProgressiveReveal 
+                              key={index}
+                              delay={index * 150}
+                              direction="up"
+                            >
+                              <span className="px-3 py-2 bg-secondary/10 text-secondary rounded-lg font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-105 transition-all duration-300 enhanced-hover">
+                                {tool}
+                              </span>
+                            </ProgressiveReveal>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {domain.tools.map((tool, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-2 bg-secondary/10 text-secondary rounded-lg font-medium border border-secondary/20 hover:bg-secondary/20 hover:scale-105 transition-all duration-300 animate-fade-in"
-                            style={{animationDelay: `${index * 150}ms`}}
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </FloatingElement>
                 </div>
               </TabsContent>
             );

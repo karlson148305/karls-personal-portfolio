@@ -1,62 +1,81 @@
 import { useState } from 'react';
 import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
 import { Mail, Linkedin, Github, Download, Phone, MapPin } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import emailjs from '@emailjs/browser';
 import contactBackground from '../assets/contact-background.jpg';
+import { useFormValidation, contactFormSchema, ContactFormData } from '../hooks/use-form-validation';
+import { FormField } from './FormField';
+import { EnhancedButton } from './EnhancedButton';
+import { MagneticButton, FloatingElement } from './MicroInteractions';
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const {
-    toast
-  } = useToast();
-  const [formData, setFormData] = useState({
+    data: formData,
+    errors,
+    touched,
+    updateField,
+    touchField,
+    validateAll,
+    reset
+  } = useFormValidation(contactFormSchema, {
     name: '',
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    const { name, value } = e.target;
+    updateField(name as keyof ContactFormData, value);
+  };
+
+  const handleFieldBlur = (fieldName: keyof ContactFormData) => {
+    touchField(fieldName);
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateAll()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       // Initialize EmailJS
       emailjs.init('G_FmGUO9HTrM5AHZA');
       
-      // Send email using EmailJS
+      // Send email using EmailJS with validated and sanitized data
       await emailjs.send(
         'service_w9nt2df',
         'template_yq6hyzs',
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+          from_name: formData.name.trim(),
+          from_email: formData.email.trim().toLowerCase(),
+          message: formData.message.trim(),
           to_email: 'karl.ngueko@2028.icam.fr'
         }
       );
 
+      setSubmitSuccess(true);
       toast({
-        title: "Message Sent Successfully!",
+        title: "Message Sent Successfully! 🚀",
         description: "Thank you for your message. I'll get back to you soon!"
       });
       
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
+      // Reset form after success
+      setTimeout(() => {
+        reset();
+        setSubmitSuccess(false);
+      }, 2000);
+      
     } catch (error) {
       console.error('Failed to send email:', error);
       toast({
@@ -128,29 +147,40 @@ const Contact = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => <Card key={index} className="bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-105 hover:rotate-1 transition-all duration-300 rounded-3xl animate-fade-in" style={{
-              animationDelay: `${600 + index * 100}ms`
-            }}>
-                  <div className="p-4 px-[12px] py-[12px]">
-                    {info.link ? <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center space-x-4 hover:text-secondary transition-colors">
-                        <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
-                          {info.icon}
-                        </div>
-                        <div>
-                          <p className="font-semibold text-steel text-sm">{info.title}</p>
-                          <p className="text-muted-foreground text-xs">{info.value}</p>
-                        </div>
-                      </a> : <div className="flex items-center space-x-4">
-                        <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
-                          {info.icon}
-                        </div>
-                        <div>
-                          <p className="font-semibold text-steel text-sm">{info.title}</p>
-                          <p className="text-muted-foreground text-xs">{info.value}</p>
-                        </div>
-                      </div>}
-                  </div>
-                </Card>)}
+              {contactInfo.map((info, index) => (
+                <FloatingElement key={index} intensity={0.5}>
+                  <MagneticButton className="w-full p-0 h-auto bg-transparent hover:bg-transparent">
+                    <Card className="w-full bg-card/70 backdrop-blur-sm hover:bg-card/90 hover:scale-105 hover:rotate-1 transition-all duration-300 rounded-3xl animate-fade-in hover-glow" 
+                          style={{ animationDelay: `${600 + index * 100}ms` }}>
+                      <div className="p-4 px-[12px] py-[12px]">
+                        {info.link ? (
+                          <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} 
+                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined} 
+                             className="flex items-center space-x-4 hover:text-secondary transition-colors group">
+                            <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                              {info.icon}
+                            </div>
+                            <div>
+                              <p className="font-semibold text-steel text-sm group-hover:text-secondary transition-colors">{info.title}</p>
+                              <p className="text-muted-foreground text-xs">{info.value}</p>
+                            </div>
+                          </a>
+                        ) : (
+                          <div className="flex items-center space-x-4">
+                            <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+                              {info.icon}
+                            </div>
+                            <div>
+                              <p className="font-semibold text-steel text-sm">{info.title}</p>
+                              <p className="text-muted-foreground text-xs">{info.value}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  </MagneticButton>
+                </FloatingElement>
+              ))}
             </div>
 
           </div>
@@ -164,32 +194,56 @@ const Contact = () => {
                   <h3 className="text-base font-orbitron font-bold text-steel mb-3 animate-slide-up">
                     Send a Message
                   </h3>
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-semibold text-steel mb-1">
-                      Full Name
-                    </label>
-                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="w-full h-8 text-sm" />
-                  </div>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <FormField
+                    label="Full Name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    onBlur={() => handleFieldBlur('name')}
+                    error={touched.name ? errors.name : undefined}
+                    placeholder="Your full name"
+                    required
+                  />
 
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-semibold text-steel mb-1">
-                      Email Address
-                    </label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required className="w-full h-8 text-sm" />
-                  </div>
+                  <FormField
+                    label="Email Address"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    onBlur={() => handleFieldBlur('email')}
+                    error={touched.email ? errors.email : undefined}
+                    placeholder="your.email@example.com"
+                    required
+                  />
 
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-semibold text-steel mb-1">
-                      Message
-                    </label>
-                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project or just say hello!" rows={3} required className="w-full resize-none text-sm" />
-                  </div>
+                  <FormField
+                    label="Message"
+                    name="message"
+                    type="textarea"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    onBlur={() => handleFieldBlur('message')}
+                    error={touched.message ? errors.message : undefined}
+                    placeholder="Tell me about your project or just say hello!"
+                    rows={4}
+                    required
+                  />
 
-                  <Button type="submit" disabled={isSubmitting} className="w-full btn-hero">
-                    <Mail className="h-4 w-4 mr-2" />
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
+                  <EnhancedButton
+                    type="submit"
+                    className="w-full btn-hero h-12 text-base font-semibold"
+                    loading={isSubmitting}
+                    success={submitSuccess}
+                    icon={<Mail className="h-4 w-4" />}
+                    loadingText="Sending Message..."
+                    successText="Message Sent! 🎉"
+                    disabled={isSubmitting || submitSuccess}
+                  >
+                    Send Message
+                  </EnhancedButton>
                 </form>
               </div>
             </Card>

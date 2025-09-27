@@ -348,6 +348,53 @@
     100% { background-position: 200% 0; }
   }
 
+  @keyframes slideInFromLeft {
+    0% { transform: translateX(-100%) rotate(-5deg); opacity: 0; }
+    100% { transform: translateX(0) rotate(0); opacity: 1; }
+  }
+
+  @keyframes slideInFromRight {
+    0% { transform: translateX(100%) rotate(5deg); opacity: 0; }
+    100% { transform: translateX(0) rotate(0); opacity: 1; }
+  }
+
+  @keyframes morphBounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(1deg); }
+    50% { transform: scale(1.1) rotate(-1deg); }
+    75% { transform: scale(1.05) rotate(0.5deg); }
+  }
+
+  /* Micro-interactions */
+  .animate-slide-left {
+    animation: slideInFromLeft 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-slide-right {
+    animation: slideInFromRight 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-morph-bounce {
+    animation: morphBounce 2s ease-in-out infinite;
+  }
+
+  /* Enhanced Hover States */
+  .enhanced-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .enhanced-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Staggered animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
   /* Grid utilities */
   .grid-auto-fit {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
