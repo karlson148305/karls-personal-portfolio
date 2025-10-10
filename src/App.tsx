@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./hooks/use-theme";
 import SkipLink from "./components/SkipLink";
+import ScrollIndicator from "./components/ScrollIndicator";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -16,6 +17,7 @@ const App = () => (
       <TooltipProvider>
         <div className="w-full">
           <SkipLink />
+          <ScrollIndicator />
           <Toaster />
           <Sonner />
           <BrowserRouter>

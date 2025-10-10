@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Github } from 'lucide-react';
+import { PortfolioFilter } from './PortfolioFilter';
 import portfolioBackground from '../assets/portfolio-background.jpg';
 import phoneHolderImage from '../assets/phone-holder-generated.jpg';
 import droneAssemblyImage from '../assets/drone-assembly-generated.jpg';
@@ -10,6 +12,7 @@ import boatControllerImage from '../assets/boat-controller-generated.jpg';
 import roomDesignImage from '../assets/room-design-generated.jpg';
 
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState<string>('All');
 
   const projects = [
     {
@@ -74,6 +77,11 @@ const Portfolio = () => {
     }
   ];
 
+  const categories = Array.from(new Set(projects.map(p => p.category)));
+  const filteredProjects = activeCategory === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
+
   return (
     <section 
       id="portfolio" 
@@ -97,8 +105,14 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto"></div>
         </div>
 
+        <PortfolioFilter 
+          categories={categories}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
+        />
+
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <Card 
               key={index} 
               className="group relative overflow-hidden bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/50 hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20 hover:scale-105 animate-fade-in" 
