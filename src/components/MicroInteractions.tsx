@@ -65,20 +65,20 @@ export const MagneticButton: React.FC<{
       const moveX = (x / distance) * force * 10;
       const moveY = (y / distance) * force * 10;
       
-      ref.current.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + force * 0.1})`;
+      ref.current.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${1 + force * 0.1})`;
     }
   };
 
   const handleMouseLeave = () => {
     if (!ref.current) return;
-    ref.current.style.transform = 'translate(0px, 0px) scale(1)';
+    ref.current.style.transform = 'translate3d(0px, 0px, 0) scale(1)';
     setIsHovered(false);
   };
 
   return (
     <button
       ref={ref}
-      className={`relative transition-all duration-300 ease-out ${className} ${
+      className={`relative transition-all duration-300 ease-out will-change-transform ${className} ${
         disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
       }`}
       onMouseMove={handleMouseMove}
@@ -122,9 +122,9 @@ export const FloatingElement: React.FC<{
   return (
     <div
       ref={ref}
-      className={`transition-transform duration-300 ease-out ${className}`}
+      className={`transition-transform duration-300 ease-out will-change-transform ${className}`}
       style={{
-        transform: `translate(${position.x}px, ${position.y}px)`,
+        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
       }}
     >
       {children}

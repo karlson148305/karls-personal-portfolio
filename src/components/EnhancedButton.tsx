@@ -79,7 +79,8 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`,
+        transform: `translate3d(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px, 0)`,
+        willChange: magneticEffect ? 'transform' : 'auto'
       }}
     >
       <span className={cn(

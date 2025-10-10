@@ -11,18 +11,26 @@ export const ParallaxSection = ({ children, speed = 0.5, className = '' }: Paral
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const sectionTop = rect.top + scrolled;
-        const sectionHeight = rect.height;
-        const windowHeight = window.innerHeight;
-        
-        // Calculate offset only when section is in view
-        if (scrolled + windowHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
-          setOffsetY((scrolled - sectionTop) * speed);
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (sectionRef.current) {
+            const rect = sectionRef.current.getBoundingClientRect();
+            const scrolled = window.scrollY;
+            const sectionTop = rect.top + scrolled;
+            const sectionHeight = rect.height;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate offset only when section is in view
+            if (scrolled + windowHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+              setOffsetY((scrolled - sectionTop) * speed);
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -34,7 +42,12 @@ export const ParallaxSection = ({ children, speed = 0.5, className = '' }: Paral
 
   return (
     <div ref={sectionRef} className={className}>
-      <div style={{ transform: `translateY(${offsetY}px)`, transition: 'transform 0.1s ease-out' }}>
+      <div 
+        style={{ 
+          transform: `translateY(${offsetY}px)`,
+          willChange: 'transform'
+        }}
+      >
         {children}
       </div>
     </div>
