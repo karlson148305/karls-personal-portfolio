@@ -48,9 +48,8 @@ jobs:
             { grep -rlF --include='*.html' --include='*.js' --include='*.xml' --include='*.txt' "$SITE_URL" . || true; } \
               | xargs -r sed -i "s|$SITE_URL|$PAGES_URL|g"
           fi
-          # GitHub Pages serves files, not app routes: /en is answered by en.html and any other
-          # address by 404.html, so both get a copy of the app.
-          cp index.html en.html
+          # GitHub Pages serves files, not app routes: /en is answered by en.html (built by Vite)
+          # and any other address by 404.html, which gets a copy of the app.
           cp index.html 404.html
           touch .nojekyll
 

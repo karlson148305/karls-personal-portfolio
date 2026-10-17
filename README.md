@@ -12,7 +12,7 @@ All text lives in one file: [`src/content.ts`](src/content.ts), with a `fr` and 
 
 - Photos of past projects: `src/assets/projects/`
 - Downloadable résumés: `public/cv/` (French and English PDFs)
-- Social preview image: `public/og-image.jpg`
+- Link previews (LinkedIn, WhatsApp…): the title and description in `index.html` (French) and `en.html` (English), and the image `public/og-image.jpg`. If you change `meta` in `src/content.ts`, change these two files the same way.
 
 ## Running it locally
 

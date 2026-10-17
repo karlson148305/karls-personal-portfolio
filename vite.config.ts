@@ -19,4 +19,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      // Two copies of the same app: index.html (French) and en.html (English),
+      // so each language has its own title and link preview.
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+        en: path.resolve(__dirname, "en.html"),
+      },
+    },
+  },
 }));
