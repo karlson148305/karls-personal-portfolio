@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karlson148305.github.io/karls-personal-portfolio/sitemap.xml
