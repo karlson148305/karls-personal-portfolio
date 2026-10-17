@@ -1,80 +1,86 @@
-import LoadingImage from './LoadingImage';
-import { Button } from './ui/button';
-import karlProfile from '../assets/karl-profile-1.jpg';
-import mechanicalPattern from '../assets/mechanical-pattern.jpg';
-const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  return <section id="home" className="min-h-screen flex items-center relative overflow-hidden" style={{
-    backgroundImage: `linear-gradient(rgba(33, 43, 54, 0.8), rgba(33, 43, 54, 0.8)), url(${mechanicalPattern})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  }}>
-      <div className="mechanical-pattern absolute inset-0 opacity-20"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="animate-slide-up">
-            <div className="mb-4">
-              <span className="text-secondary font-orbitron font-medium text-lg">
-                🔧 Engineering with purpose
-              </span>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6">
-              <span className="sr-only">Karl Friedrich NGUEKO TCHINDEU - </span>
-              KARL FRIEDRICH
-              <br />
-              <span className="text-gradient">NGUEKO TCHINDEU</span>
-            </h1>
-            
-            <h2 className="text-xl md:text-2xl text-gray-300 mb-6 font-orbitron">
-              Aspiring Mechanical Design Engineer
-            </h2>
-            
-            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed py-0 my-[20px] mx-0 px-0 font-thin text-justify">Specializing in CAD modeling, engineering simulation, project management, and material science. Proficient in SolidWorks, with hands-on experience in Ansys Granta for accurate design validation and data-driven material selection.</p>
-            
-            <div className="mb-8">
-              <p className="text-secondary font-orbitron font-medium text-lg">
-                "Designing smarter machines for a sustainable tomorrow."
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={() => scrollToSection('portfolio')} className="btn-hero">
-                View Portfolio
-              </Button>
-              <Button onClick={() => scrollToSection('contact')} variant="outline" className="btn-outline-hero">
-                Contact Me
-              </Button>
-            </div>
-          </div>
+import { Download } from "lucide-react";
+import { CV_FILES, type Content, type Lang } from "@/content";
 
-          {/* Profile Image */}
-          <div className="flex justify-center lg:justify-end animate-fade-in">
-            <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-secondary glow-blue animate-float">
-                <LoadingImage 
-                  src={karlProfile} 
-                  alt="Karl Friedrich NGUEKO TCHINDEU - Aspiring Mechanical Design Engineer" 
-                  className="w-full h-full object-cover" 
-                  skeletonClassName="w-full h-full rounded-full"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-secondary/20 rounded-full animate-pulse" aria-hidden="true"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-mechanical-orange/20 rounded-full animate-pulse delay-1000" aria-hidden="true"></div>
-            </div>
+interface HeroProps {
+  t: Content;
+  lang: Lang;
+}
+
+function ResultsBoard({ t }: { t: Content }) {
+  return (
+    <div
+      role="group"
+      aria-label={t.hero.boardLabel}
+      className="flex min-w-0 flex-[1_1_360px] flex-col border border-board-line bg-board"
+    >
+      <div className="flex items-center justify-between border-b border-board-line px-5 py-3.5 font-mono text-xs uppercase tracking-[0.08em] text-board-text">
+        <span>{t.hero.boardTitle}</span>
+        <span>{t.hero.boardCountries}</span>
+      </div>
+      <dl className="m-0 flex flex-1 flex-col">
+        {t.hero.results.map((result) => (
+          <div
+            key={result.source + result.label}
+            className="grid flex-1 grid-cols-[6.5rem_minmax(0,1fr)] content-center items-center gap-x-4 border-b border-board-line p-5 sm:grid-cols-[7.75rem_minmax(0,1fr)]"
+          >
+            <dt className="order-last flex flex-col gap-0.5">
+              <span className="text-lg font-semibold leading-tight">{result.label}</span>
+              <span className="font-mono text-xs text-board-text">{result.source}</span>
+            </dt>
+            <dd className="m-0 whitespace-nowrap font-display text-[46px] font-bold leading-none text-signal sm:text-[54px]">
+              {result.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p className="m-0 px-5 py-4 text-[15px] text-board-text">{t.hero.boardFooter}</p>
+    </div>
+  );
+}
+
+export function Hero({ t, lang }: HeroProps) {
+  const cv = CV_FILES[lang];
+
+  return (
+    <section id={t.ids.home} aria-labelledby="hero-title" className="on-dark scroll-mt-20 bg-ink text-paper">
+      <div className="container-page flex flex-wrap items-stretch gap-12 py-14 md:py-20 lg:py-[104px]">
+        <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6">
+          <p className="m-0 font-mono text-[13px] uppercase tracking-[0.08em] text-signal">{t.hero.eyebrow}</p>
+          <h1
+            id="hero-title"
+            className="m-0 font-display text-[48px] font-bold uppercase leading-[0.92] tracking-[0.01em] sm:text-[72px] lg:text-[clamp(72px,7vw,100px)]"
+          >
+            Karl Friedrich
+            <br />
+            Ngueko Tchindeu
+          </h1>
+          <p className="m-0 max-w-[640px] text-[21px] font-medium leading-[1.35] md:text-[25px] lg:text-[27px]">
+            {t.hero.lead}
+          </p>
+          <p className="m-0 max-w-[600px] text-board-text">{t.hero.sub}</p>
+          <p className="m-0 inline-flex items-center gap-2.5 self-start border border-board-edge px-3.5 py-2 text-base">
+            <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-signal" />
+            {t.hero.availability}
+          </p>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a
+              href={cv.href}
+              download={cv.filename}
+              className="inline-flex h-[52px] items-center gap-2.5 bg-signal px-6 text-[17px] font-semibold text-ink no-underline transition-colors hover:bg-[#FFC61A]"
+            >
+              <Download aria-hidden="true" className="h-[18px] w-[18px]" strokeWidth={2} />
+              {t.hero.ctaCv}
+            </a>
+            <a
+              href={`#${t.ids.contact}`}
+              className="inline-flex h-[52px] items-center border border-paper px-6 text-[17px] font-semibold text-paper no-underline transition-colors hover:bg-paper hover:text-ink"
+            >
+              {t.hero.ctaContact}
+            </a>
           </div>
         </div>
+        <ResultsBoard t={t} />
       </div>
-    </section>;
-};
-export default Hero;
+    </section>
+  );
+}
