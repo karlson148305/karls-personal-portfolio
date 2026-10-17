@@ -28,4 +28,4 @@ Vite, React, TypeScript and Tailwind CSS. Hosted on Lovable, which deploys from 
 
 ## Earlier version
 
-The first version of the site (mechanical design portfolio, 2025) is kept under the git tag `v1-mechanical-design`.
+The first version of the site (mechanical design portfolio, 2025) is kept on the branch `v1-mechanical-design`.
