@@ -1,0 +1,65 @@
+# Publishes the site to GitHub Pages: https://karlson148305.github.io/karls-personal-portfolio/
+#
+# Runs on every push to main (including the ones Lovable makes) and can also be started by hand
+# from the Actions tab. The built site replaces the content of the gh-pages branch, which is the
+# branch GitHub Pages serves.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_PATH: /${{ github.event.repository.name }}/
+      PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build for the GitHub Pages address
+        run: npx vite build --base="$BASE_PATH"
+
+      - name: Adapt the build to GitHub Pages
+        working-directory: dist
+        run: |
+          # Links to the site itself (canonical address, social preview, sitemap) point to the
+          # GitHub Pages copy instead of the main address set in src/content.ts.
+          SITE_URL=$(sed -n 's/^export const SITE_URL = "\([^"]*\)".*/\1/p' ../src/content.ts)
+          if [ -n "$SITE_URL" ]; then
+            { grep -rlF --include='*.html' --include='*.js' --include='*.xml' --include='*.txt' "$SITE_URL" . || true; } \
+              | xargs -r sed -i "s|$SITE_URL|$PAGES_URL|g"
+          fi
+          # GitHub Pages serves files, not app routes: /en is answered by en.html and any other
+          # address by 404.html, so both get a copy of the app.
+          cp index.html en.html
+          cp index.html 404.html
+          touch .nojekyll
+
+      - name: Publish to the gh-pages branch
+        working-directory: dist
+        run: |
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Deploy ${GITHUB_SHA::7} from main"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

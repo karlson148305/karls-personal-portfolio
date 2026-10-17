@@ -9,15 +9,19 @@ export type Lang = "fr" | "en";
 /** Non-breaking space, used in French figures ("15 %", "34,5 s"). */
 const NB = " ";
 
+/** Main address of the site. The GitHub Pages copy swaps it for its own address when it is built. */
 export const SITE_URL = "https://karl-ngueko-portfolio.lovable.app";
 export const EMAIL = "karl.ngueko@2028.icam.fr";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/karl-friedrich-ngueko-tchindeu-043b85272";
 export const GITHUB_URL = "https://github.com/karlson148305";
 export const PORTRAIT = { src: portrait, width: 603, height: 800 };
 
+/** Folder the site is served from: "/" on Lovable, "/karls-personal-portfolio/" on GitHub Pages. */
+const BASE = import.meta.env.BASE_URL;
+
 export const CV_FILES = {
-  fr: { href: "/cv/Karl-Friedrich-Ngueko-Tchindeu-CV-FR.pdf", filename: "Karl-Friedrich-Ngueko-Tchindeu-CV-FR.pdf" },
-  en: { href: "/cv/Karl-Friedrich-Ngueko-Tchindeu-CV-EN.pdf", filename: "Karl-Friedrich-Ngueko-Tchindeu-CV-EN.pdf" },
+  fr: { href: `${BASE}cv/Karl-Friedrich-Ngueko-Tchindeu-CV-FR.pdf`, filename: "Karl-Friedrich-Ngueko-Tchindeu-CV-FR.pdf" },
+  en: { href: `${BASE}cv/Karl-Friedrich-Ngueko-Tchindeu-CV-EN.pdf`, filename: "Karl-Friedrich-Ngueko-Tchindeu-CV-EN.pdf" },
 } as const;
 
 export interface Result {
