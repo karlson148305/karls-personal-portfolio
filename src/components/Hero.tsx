@@ -58,10 +58,6 @@ export function Hero({ t, lang }: HeroProps) {
             {t.hero.lead}
           </p>
           <p className="m-0 max-w-[600px] text-board-text">{t.hero.sub}</p>
-          <p className="m-0 inline-flex items-center gap-2.5 self-start border border-board-edge px-3.5 py-2 text-base">
-            <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-signal" />
-            {t.hero.availability}
-          </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <a
               href={cv.href}

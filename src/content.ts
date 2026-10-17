@@ -91,7 +91,6 @@ export interface Content {
     eyebrow: string;
     lead: string;
     sub: string;
-    availability: string;
     ctaCv: string;
     ctaContact: string;
     boardLabel: string;
@@ -174,7 +173,7 @@ export const content: Record<Lang, Content> = {
     meta: {
       title: "Karl Friedrich Ngueko Tchindeu · Lean et industrie numérique",
       description:
-        "Élève-ingénieur Icam en Systèmes numériques industriels et apprenti en excellence opérationnelle à la RATP. Disponible pour un stage de 12 semaines au Canada, juin–août 2027.",
+        "Élève-ingénieur Icam en Systèmes numériques industriels et apprenti en excellence opérationnelle à la RATP : Lean, maintenance et données au service de la performance industrielle.",
       path: "/",
     },
     skipLink: "Aller au contenu",
@@ -205,7 +204,6 @@ export const content: Record<Lang, Content> = {
       eyebrow: "Élève-ingénieur · Icam Strasbourg · Systèmes numériques industriels",
       lead: "Lean et industrie numérique : j'aide les ateliers à mieux tourner, avec les équipes du terrain et les données qu'elles produisent.",
       sub: "Apprenti ingénieur en excellence opérationnelle à la RATP, en alternance à l'Icam de 2026 à 2028.",
-      availability: "Disponible pour un stage de 12 semaines au Canada · juin–août 2027",
       ctaCv: "Télécharger mon CV",
       ctaContact: "Me contacter",
       boardLabel: "Résultats de stage",
@@ -400,8 +398,8 @@ export const content: Record<Lang, Content> = {
     },
     contact: {
       eyebrow: "06 / Contact",
-      title: "Je cherche un stage de 12 semaines au Canada, de juin à août 2027",
-      text: "En industrialisation ou en amélioration continue. Écrivez-moi pour un stage, une question sur un projet ou un échange.",
+      title: "Me contacter",
+      text: "Une question sur un projet, ou envie d'échanger sur le Lean et l'industrie numérique ? Écrivez-moi.",
       cvLinks: [
         { label: "CV en français (PDF)", lang: "fr" },
         { label: "CV en anglais (PDF)", lang: "en" },
@@ -420,7 +418,7 @@ export const content: Record<Lang, Content> = {
     meta: {
       title: "Karl Friedrich Ngueko Tchindeu · Lean and digital industry",
       description:
-        "Icam engineering student in Industrial Digital Systems and operational excellence apprentice at RATP. Available for a 12-week internship in Canada, June–August 2027.",
+        "Icam engineering student in Industrial Digital Systems and operational excellence apprentice at RATP: Lean, maintenance and data for better industrial performance.",
       path: "/en",
     },
     skipLink: "Skip to content",
@@ -451,7 +449,6 @@ export const content: Record<Lang, Content> = {
       eyebrow: "Engineering student · Icam Strasbourg · Industrial digital systems",
       lead: "Lean meets digital industry: I help production sites run better, with the teams on the floor and the data they produce.",
       sub: "Operational excellence engineering apprentice at RATP, the Paris public transit operator, in a work-study program with Icam from 2026 to 2028.",
-      availability: "Available for a 12-week internship in Canada · June–August 2027",
       ctaCv: "Download my résumé",
       ctaContact: "Get in touch",
       boardLabel: "Internship results",
@@ -646,8 +643,8 @@ export const content: Record<Lang, Content> = {
     },
     contact: {
       eyebrow: "06 / Contact",
-      title: "I'm looking for a 12-week internship in Canada, June to August 2027",
-      text: "In industrialization or continuous improvement. Write to me about an internship, a project question or just to connect.",
+      title: "Get in touch",
+      text: "A question about a project, or want to talk Lean and digital industry? Write to me.",
       cvLinks: [
         { label: "Résumé in English (PDF)", lang: "en" },
         { label: "Résumé in French (PDF)", lang: "fr" },
